@@ -33,7 +33,8 @@
   // social media
   let userSocial = document.querySelectorAll(".userSocial");
   for (i = 0; i < userSocial.length; i++) {
-    userSocial.innerHTML = `<a href="${profileData.redesSociais[i].url}" target="_blank"
+    userSocial[i].innerHTML =
+      `<a href="${profileData.redesSociais[i].url}" target="_blank"
               ><i class="bi bi-${profileData.redesSociais[i].nome}"></i
             ></a>`;
   }

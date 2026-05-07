@@ -42,7 +42,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(to right, #0b67b3, #086767);
+  background: linear-gradient(to right, #213463, #085cb1);
 }
 
 .card-container {
@@ -52,6 +52,7 @@ body {
   padding: 1rem;
   gap: 1rem;
 
+  background-color: #111827;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -94,6 +95,9 @@ body {
   cursor: pointer;
   transition: all 0.5s ease-in;
 }
+details[open] {
+  background-color: rgb(32, 73, 121);
+}
 details:hover {
   background-color: rgb(32, 73, 121);
 }
@@ -116,9 +120,10 @@ details:hover {
 .project i {
   font-size: 3rem;
   transition: all 0.5s ease-in-out;
+  color: #111827;
 }
 .project i:hover {
-  color: #000;
+  color: #fff;
 }
 
 .image-container {
@@ -137,9 +142,9 @@ details:hover {
 }
 
 .carousel-item {
-  min-width: 100%; /* Cada item ocupa o contêiner todo */
+  min-width: 100%; 
   height: 100%;
-  scroll-snap-align: start; /* Alinha o início do item */
+  scroll-snap-align: start; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,7 +160,7 @@ details:hover {
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 1rem;
 }
 .social-media ul li {
