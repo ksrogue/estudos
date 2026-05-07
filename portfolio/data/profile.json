@@ -1,0 +1,31 @@
+{
+  "nome": "David William",
+  "titulo": "Desenvolvedor Web",
+  "localidade": "São Paulo - BR",
+  "telefone": "(11) 9 9305-4575",
+  "email": "ksdavid98@gmail.com",
+
+  "skills": {
+    "hardskills": [
+      { "nome": "HTML", "logo": "html" },
+      { "nome": "CSS", "logo": "css" },
+      { "nome": "JS", "logo": "js" }
+    ],
+    "softskills": ["Organização", "Flexibilidade", "Aprendizado Rápido"]
+  },
+  "idiomas": [
+    {
+      "nome": "Português",
+      "nivel": "Nativo"
+    },
+    {
+      "nome": "Inglês",
+      "nivel": "Básico"
+    }
+  ],
+  "redes sociais": [
+    { "nome": "instagram", "url": "instagram.com/ks.rogue" },
+    { "nome": "linkedin", "url": "linkedin.com/in/ksrogue" },
+    { "nome": "github", "url": "github.com/ksrogue" }
+  ]
+}
