@@ -15,14 +15,18 @@
       <header class="header">
         <h1>
           Olá,<br />
-          sou o David William
+          sou o <span id="nome"></span>
         </h1>
-        <img src="assets/david.png" alt="foto de david william" />
+        <img class="img" src="assets/david.png" alt="foto de david william" />
         <ul>
-          <li><i class="bi bi-person-fill"></i> Desenvolvedor Web</li>
-          <li><i class="bi bi-geo-alt-fill"></i> São Paulo - BR</li>
-          <li><i class="bi bi-whatsapp"></i> (11) 9 9305-4575</li>
-          <li><i class="bi bi-envelope-at-fill"></i> ksdavid98@gmail.com</li>
+          <li><i class="bi bi-person-fill"></i> <span class="role"></span></li>
+          <li>
+            <i class="bi bi-geo-alt-fill"></i> <span class="local"></span>
+          </li>
+          <li><i class="bi bi-whatsapp"></i> <span class="tel"></span></li>
+          <li>
+            <i class="bi bi-envelope-at-fill"></i> <span class="email"></span>
+          </li>
         </ul>
       </header>
 
@@ -55,7 +59,9 @@
         <div class="image-container">
           <i class="bi bi-chevron-compact-left"></i>
           <ul class="carousel">
-            <li class="carousel-item"><img src="assets/pPlaceholder.png" alt=""></li>
+            <li class="carousel-item">
+              <img src="assets/pPlaceholder.png" alt="" />
+            </li>
             <!-- <li class="carousel-item"><img src="assets/pPlaceholder.png" alt=""></li> -->
           </ul>
           <i class="bi bi-chevron-compact-right"></i>
@@ -65,11 +71,26 @@
       <details class="social-media">
         <summary>Redes Sociais</summary>
         <ul>
-          <li><a href="https://instagram.com/ks.rogue" target="_blank"><i class="bi bi-instagram"></i></a></li>
-          <li><a href="https://linkedin.com/in/ksrogue" target="_blank"><i class="bi bi-linkedin"></i></a></li>
-          <li><a href="https://github.com/ksrogue" target="_blank"><i class="bi bi-github"></i></a></li>
+          <li>
+            <a href="https://instagram.com/ks.rogue" target="_blank"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/ksrogue" target="_blank"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/ksrogue" target="_blank"
+              ><i class="bi bi-github"></i
+            ></a>
+          </li>
         </ul>
       </details>
     </main>
+
+    <script src="data/api.js"></script>
+    <script src="data/app.js"></script>
   </body>
 </html>
