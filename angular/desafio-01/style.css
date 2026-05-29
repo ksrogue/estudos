@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding-left: 8px;
+}
+
+.autor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.autor-img {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 1px solid gray;
+}
+.autor-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    font-size: 1em;
+    color: gray;
+}
+.news-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.6em;
+    line-height: .8;
+}
+.news-text {
+    color: gray;
+}
+.news-date {
+    font-size: .8em;
+}
+
+.card-right {
+    display: flex;
+}
+.news-img {
+    width: 100%;
+}
