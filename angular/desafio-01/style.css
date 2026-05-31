@@ -58,3 +58,17 @@
 .news-img {
     width: 100%;
 }
+
+
+@media screen and (max-width: 720px) {
+    .card {
+        max-width: 100%;
+        flex-direction: column;
+    }
+    .card-left {
+        gap: 16px;
+    }
+    .card-right {
+        padding: 8px;
+    }
+}

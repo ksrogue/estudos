@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="pt-bt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="src/cardNews.js" defer></script>
-    <title>Portal de Notícias</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="card">
+class CardNews extends HTMLElement {
+  constructor() {
+    super();
+
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.innerHTML = `<div class="card">
         <div class="card-left">
           <span class="autor">
             <img
@@ -33,8 +27,8 @@
         <div class="card-right">
           <img src="assets/dq12.jpg" alt="imagem da noticia" class="news-img" />
         </div>
-      </div>
-    </div>
-    
-  </body>
-</html>
+      </div>`;
+  }
+}
+
+customElements.define("card-news", CardNews);
