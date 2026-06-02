@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="src/cardNews.js" defer></script>
+    <script src="src/components/cardNews.js" defer></script>
     <title>Portal de Notícias</title>
   </head>
   <body>
     <div class="container">
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-left">
           <span class="autor">
             <img
@@ -32,9 +32,16 @@
         </div>
         <div class="card-right">
           <img src="assets/dq12.jpg" alt="imagem da noticia" class="news-img" />
-        </div>
+        </div> -->
+        <card-news
+        autor-image="assets/david.png"
+        autor="David William"
+        title="Dragon Quest 12 foi finalmente anunciado"
+        content="Agora rebatizado como Dragon Quest XII: Beyond Dreams, o jogo abandonou o tom obscuro e promete uma jornada clássica muito mais viva, brilhante e tradicional. A nova trama acompanhará um protagonista atormentado por visões misteriosas em seu sono. O game utilizará os designs finais deixados por Akira Toriyama, mas com o reinício do zero, o lançamento ficou bem distante."
+        news-image="assets/dq12.jpg"
+        image-alt="protagonista do novo jogo"
+      ></card-news>
       </div>
     </div>
-    
   </body>
 </html>
