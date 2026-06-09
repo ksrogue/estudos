@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px;
+}
+.menu,
+.search {
+  font-size: 1.5em;
+  color: gray;
+
+  cursor: pointer;
+}
+
+.logo {
+  width: 100px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.featured {
+  background: #fff url("../images/dq11.png") center no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+
+  width: 90%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  padding-left: 16px;
+}
+.featured span {
+  font-size: 0.8em;
+  color: gold;
+  text-shadow: 1px 1px 3px black;
+}
+.featured-title {
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 1px 1px 3px black;
+}
+.featured-text {
+  color: #fff;
+  text-shadow: 1px 1px 3px black;
+}
+.featured-btn {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: #fff;
+  background-color: goldenrod;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+.last-news,
+.main-games,
+.images {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: #0f1319;
+  width: 90%;
+  border-radius: 10px;
+  padding: 12px;
+  gap: 12px;
+}
+.news-desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-title {
+  color: #fff;
+  font-size: .8em;
+}
+.news-desc span {
+  color: gold;
+  font-size: 0.6em;
+}
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.card-news {
+  border-bottom: 1px solid black;
+  display: flex;
+  padding: 6px;
+}
+.card-news img {
+  width: 75px;
+  height: 75px;
+  background-color: #1a222d;
+  border-radius: 5px;
+}
+.card-news div {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.card-news .news-text {
+  color: #fff;
+  font-size: .8em;
+}
+.card-news div span {
+  color: gray;
+}
+
+.games-container {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.games-container::-webkit-scrollbar {
+  height: 6px;
+}
+.games-container::-webkit-scrollbar-thumb {
+  background-color: #232a35;
+  border-radius: 10px;
+}
+.games-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.game-item .image-container {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background-color: #1a222d;
+  border: 1px solid #232a35;
+  overflow: hidden;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+.game-item span {
+  color: #8fa0b5;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.images-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.images-container {
+    background-color: #1a222d;
+    width: 25%;
+    height: 80px;
+    border-radius: 10px;
+}
+.images-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
