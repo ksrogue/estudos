@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <script src="src/components/CardNews.js" defer></script>
+    <title>Portal DQ</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="menu">
+          <i class="bi bi-list"></i>
+        </ul>
+        <img
+          src="assets/images/logo.png"
+          alt="logo do Portal DQ"
+          class="logo"
+        />
+        <div class="theme">
+          <i class="bi bi-brightness-high-fill"></i>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="featured">
+        <span class="span-text">DESTAQUE</span>
+        <h1 class="featured-title">DRAGON QUEST XI</h1>
+        <p class="featured-text">Uma jornada inesquecível.</p>
+        <div class="featured-btn"><a href="#">SAIBA MAIS</a></div>
+      </section>
+
+      <section class="card-container">
+        <div class="text-wrapper">
+          <h2>ÚLTIMAS NOTÍCIAS</h2>
+          <a href="#" class="span-text"
+            >VER TODAS <i class="bi bi-chevron-right"></i
+          ></a>
+        </div>
+        <card-news
+          news-src="assets/images/dq12.png"
+          news-title="Dragon Quest XII é finalmente anunciado, mas inteiramente refeito."
+          news-time="2 horas atrás"
+        ></card-news>
+      </section>
+
+      <section class="card-container">
+        <div class="text-wrapper">
+          <h2>JOGOS DA SÉRIE</h2>
+          <a href="#" class="span-text"
+            >VER TODOS <i class="bi bi-chevron-right"></i
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer>
+      <p>
+        Desenvolvido por
+        <a href="https://instagram.com/ks.rogue">David William</a>
+      </p>
+    </footer> -->
+  </body>
+</html>
