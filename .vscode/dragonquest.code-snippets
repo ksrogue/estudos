@@ -28,8 +28,20 @@
   "Card News Component": {
     "prefix": "card-news",
     "body": [
-      "<card-news news-src=\"$1\" news-title=\"$2\" news-time=\"$3\"></card-news>",
+      "<card-news news-src=\"$1\" news-alt=\"$2\" news-title=\"$3\" news-time=\"$2\"></card-news>",
     ],
     "description": "Gera a tag customizada do Card News com atributos",
   },
+  "Games Card Component": {
+    "prefix": "games-card",
+    "body": [
+      "<games-card game-src=\"$1\" game-alt=\"$2\" game-name=\"$3\"></games-card>",
+    ],
+    "description": "Gera a tag customizada do Game Card com atributos",
+  },
+  // "Gallery Img Component": {
+  //   "prefix": "gallery-img",
+  //   "body": ["<gallery-img img-src=\"$1\" img-alt=\"$2\"></gallery-img>"],
+  //   "description": "Gera a tag customizada do Gallery Img com atributos",
+  // },
 }

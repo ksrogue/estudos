@@ -11,29 +11,28 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <script src="src/components/CardNews.js" defer></script>
+    <script src="src/components/GamesCard.js" defer></script>
     <title>Portal DQ</title>
   </head>
   <body>
     <header>
       <nav>
-        <ul class="menu">
-          <i class="bi bi-list"></i>
-        </ul>
+        <button class="menu"><i class="bi bi-list"></i></button>
         <img
           src="assets/images/logo.png"
           alt="logo do Portal DQ"
           class="logo"
         />
-        <div class="theme">
-          <i class="bi bi-brightness-high-fill"></i>
-        </div>
+        <button>
+          <i class="bi bi-brightness-high-fill theme"></i>
+        </button>
       </nav>
     </header>
     <main>
       <section class="featured">
         <span class="span-text">DESTAQUE</span>
-        <h1 class="featured-title">DRAGON QUEST XI</h1>
-        <p class="featured-text">Uma jornada inesquecível.</p>
+        <h1 class="featured-title">Título do destaque</h1>
+        <p class="featured-text">Descrição do destaque</p>
         <div class="featured-btn"><a href="#">SAIBA MAIS</a></div>
       </section>
 
@@ -46,8 +45,21 @@
         </div>
         <card-news
           news-src="assets/images/dq12.png"
+          news-alt="protagonista do dragon quest 12"
           news-title="Dragon Quest XII é finalmente anunciado, mas inteiramente refeito."
           news-time="2 horas atrás"
+        ></card-news>
+        <card-news
+          news-src="assets/images/b-placeholder.png"
+          news-alt="fan art dragon quest 11"
+          news-title="Dragon Quest XI relançado para Nintendo Switch 2"
+          news-time="1 hora atrás"
+        ></card-news>
+        <card-news
+          news-src="assets/images/b-placeholder.png"
+          news-alt="capa do dragon quest 8"
+          news-title="Dragon Quest 8 remake, um sonho distante?"
+          news-time="20 minutos atrás"
         ></card-news>
       </section>
 
@@ -58,6 +70,39 @@
             >VER TODOS <i class="bi bi-chevron-right"></i
           ></a>
         </div>
+        <div class="games-wrapper">
+          <games-card
+            game-src="assets/images/b-placeholder.png"
+            game-alt="personagem do dragon quest 1"
+            game-name="DQ I"
+          ></games-card>
+          <games-card
+            game-src="assets/images/b-placeholder.png"
+            game-alt="personagem do dragon quest 2"
+            game-name="DQ II"
+          ></games-card>
+          <games-card
+            game-src="assets/images/b-placeholder.png"
+            game-alt="personagem do dragon quest 3"
+            game-name="DQ III"
+          ></games-card>
+          <games-card
+            game-src="assets/images/b-placeholder.png"
+            game-alt="personagem do dragon quest 4"
+            game-name="DQ IV"
+          ></games-card>
+        </div>
+      </section>
+
+      <section class="card-container">
+        <div class="text-wrapper">
+          <h2>GALERIA EM DESTAQUE</h2>
+          <a href="#" class="span-text"
+            >EXPANDIR <i class="bi bi-chevron-right"></i
+          ></a>
+        </div>
+
+        <ul class="gallery-wrapper"></ul>
       </section>
     </main>
 
@@ -67,5 +112,7 @@
         <a href="https://instagram.com/ks.rogue">David William</a>
       </p>
     </footer> -->
+
+    <script src="app.js"></script>
   </body>
 </html>

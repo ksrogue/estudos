@@ -2,30 +2,24 @@ class CardNews extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(this.build());
-    shadow.appendChild(this.styles());
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
-    if (!this.hasAttribute("src")) {
-      this.setAttribute("news-src", "assets/images/placeholder.png");
-    }
-    if (!this.hasAttribute("news-title")) {
-      this.setAttribute("title", "título da notícia");
-    }
-    if (!this.hasAttribute("news-time")) {
-      this.setAttribute("time", "postado em...");
-    }
+    this.shadowRoot.appendChild(this.build());
+    this.shadowRoot.appendChild(this.styles());
   }
+
   build() {
     const card = document.createElement("div");
-    let newsSrc = this.getAttribute("news-src") || 'assets/images/placeholder.png';
-    let newsTitle = this.getAttribute("news-title") || 'título da notícia';
-    let newsTime = this.getAttribute("news-time") || 'postado em...';
+    let newsSrc =
+      this.getAttribute("news-src") || "assets/images/placeholder.png";
+    let newsAlt = this.getAttribute("news-alt") || "imagem_placeholder";
+    let newsTitle = this.getAttribute("news-title") || "título da notícia";
+    let newsTime = this.getAttribute("news-time") || "postado em...";
     card.innerHTML = `
           <div class="news-card">
-            <img src="${newsSrc}" alt="imagem da noticia">
+            <img src="${newsSrc}" alt="${newsAlt}">
             <div>
               <h3>${newsTitle}</h3>
               <span>${newsTime}</span>
@@ -54,8 +48,8 @@ class CardNews extends HTMLElement {
   flex-direction: row;
   gap: 12px;
   & img {
-    width: 75px;
-    height: 75px;
+    width: 125px;
+    height: 125px;
     object-fit: cover;
     align-self: center;
     border: 1px solid var(--border-div);
@@ -72,7 +66,7 @@ class CardNews extends HTMLElement {
   }
   & h3 {
     color: var(--main-text);
-    font-size: .8em;
+    font-size: .9em;
     font-family: var(--marcellus);
     font-weight: normal;
   }
