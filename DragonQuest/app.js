@@ -7,6 +7,36 @@ featuredImg.style.backgroundImage = 'url("assets/images/dq11.png")';
 featuredTitle.innerText = "Dragon Quest XI";
 featuredText.innerText = "Uma aventura inesquecível.";
 
+// Games
+let gamesList = [
+  { gameSrc: "assets/images/b-placeholder.png", gameAlt: "", gameName: "DQ I" },
+  {
+    gameSrc: "assets/images/b-placeholder.png",
+    gameAlt: "",
+    gameName: "DQ II",
+  },
+  {
+    gameSrc: "assets/images/b-placeholder.png",
+    gameAlt: "",
+    gameName: "DQ III",
+  },
+  {
+    gameSrc: "assets/images/b-placeholder.png",
+    gameAlt: "",
+    gameName: "DQ IV",
+  },
+];
+const gamesWrapper = document.querySelector(".games-wrapper");
+gamesList.forEach((e) => {
+  const gameCard = document.createElement("games-card");
+
+  gameCard.setAttribute("game-src", e.gameSrc);
+  gameCard.setAttribute("game-alt", e.gameAlt);
+  gameCard.setAttribute("game-name", e.gameName);
+
+  gamesWrapper.appendChild(gameCard);
+});
+
 // Gallery
 let gallery = [
   { imgSrc: "assets/images/b-placeholder.png", imgAlt: "" },
