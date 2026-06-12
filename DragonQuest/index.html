@@ -17,16 +17,21 @@
   <body>
     <header>
       <nav>
-        <button class="menu"><i class="bi bi-list"></i></button>
-        <img
-          src="assets/images/logo.png"
-          alt="logo do Portal DQ"
-          class="logo"
-        />
+        <button class="menu" onclick="toggleMenu()"><i class="bi bi-list menu-icon"></i></button>
+       
+        <img src="assets/images/logo-light.png" alt="logo do site" class="logo">
+       
         <button>
           <i class="bi bi-brightness-high-fill theme"></i>
         </button>
       </nav>
+      <ul class="menu-bar">
+        <li><a href="#">NOTÍCIAS</a></li>
+        <li><a href="#">JOGOS</a></li>
+        <li><a href="#">GALERIA</a></li>
+        <li><a href="#">GUIAS</a></li>
+        <li><a href="#">OUTROS</a></li>
+      </ul>
     </header>
     <main>
       <section class="featured">
@@ -47,19 +52,19 @@
           news-src="assets/images/dq12.png"
           news-alt="protagonista do dragon quest 12"
           news-title="Dragon Quest XII é finalmente anunciado, mas inteiramente refeito."
-          news-time="2 horas atrás"
+          news-time="15 minutos atrás"
         ></card-news>
         <card-news
-          news-src="assets/images/b-placeholder.png"
+          news-src="assets/images/dq11news.webp"
           news-alt="fan art dragon quest 11"
           news-title="Dragon Quest XI relançado para Nintendo Switch 2"
           news-time="1 hora atrás"
         ></card-news>
         <card-news
-          news-src="assets/images/b-placeholder.png"
+          news-src="assets/images/dq8.png"
           news-alt="capa do dragon quest 8"
           news-title="Dragon Quest 8 remake, um sonho distante?"
-          news-time="20 minutos atrás"
+          news-time="12 horas atrás"
         ></card-news>
       </section>
 

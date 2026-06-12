@@ -67,13 +67,24 @@
 
 body {
   min-height: 100vh;
-  background: var(--gradient);
+  background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s ease-in-out;
 }
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--main-bg);
+
 }
 nav {
   display: flex;
@@ -101,11 +112,9 @@ a {
 }
 
 /* globais */
-
 .span-text {
   font-size: 0.8em;
   color: var(--bright-golden);
-
 }
 .menu,
 .theme {
@@ -116,7 +125,26 @@ a {
 }
 
 .logo {
-  width: 100px;
+  width: 75px;
+}
+.menu-bar {
+  width: 90%;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--cards);
+  border: 1px solid var(--border-div);
+  border-radius: 5px;
+  padding: 6px;
+
+  font-size: 0.8em;
+  color: var(--sec-text);
+}
+.menu-bar li a:hover {
+  color: var(--main-golden);
+}
+.show {
+  display: flex;
 }
 
 main {
@@ -170,7 +198,7 @@ main {
 
 .card-container {
   width: 90%;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-div);
   border-radius: 10px;
   background-color: var(--cards);
   padding: 16px;

@@ -15,13 +15,14 @@ class CardNews extends HTMLElement {
     let newsSrc =
       this.getAttribute("news-src") || "assets/images/placeholder.png";
     let newsAlt = this.getAttribute("news-alt") || "imagem_placeholder";
+    let newsLink = this.getAttribute("news-link") || "#";
     let newsTitle = this.getAttribute("news-title") || "título da notícia";
     let newsTime = this.getAttribute("news-time") || "postado em...";
     card.innerHTML = `
           <div class="news-card">
             <img src="${newsSrc}" alt="${newsAlt}">
             <div>
-              <h3>${newsTitle}</h3>
+              <a href="${newsLink}"><h3>${newsTitle}</h3></a>
               <span>${newsTime}</span>
             </div>
           </div>
@@ -33,23 +34,23 @@ class CardNews extends HTMLElement {
   styles() {
     const style = document.createElement("style");
     style.textContent = `
-    * {
+  * {
     margin: 0;
     padding: 0;
     box-sizing:  border-box;
     }
-    :host {
-      display: block;
-      width: 100%;
+  :host {
+    display: block;
+    width: 100%;
     }
-    .news-card {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
+  .news-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
   & img {
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     align-self: center;
     border: 1px solid var(--border-div);
@@ -64,6 +65,9 @@ class CardNews extends HTMLElement {
     gap: 12px;
     border-bottom: 1px solid #6b728059;
   }
+  & a {
+    text-decoration: none;
+  } 
   & h3 {
     color: var(--main-text);
     font-size: .9em;
@@ -78,8 +82,10 @@ class CardNews extends HTMLElement {
     width: 75px;
     border: 1px solid var(--border-div);
     border-radius: 10px;
-  }
-}`;
+  }   
+}
+  h3:hover {color: var(--main-golden);}
+  `;
 
     return style;
   }
