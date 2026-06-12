@@ -1,0 +1,50 @@
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  header {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    padding: 0 5px;
+  }
+
+  .frase-namoro {
+    font-size: 1.4rem;
+    padding: 0 10px;
+  }
+
+  .album-container {
+    margin: 20px auto;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 5px;
+  }
+
+  .foto-card {
+    transform: rotate(0deg) !important;
+    padding: 12px 12px 30px 12px;
+  }
+
+  .foto-card:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  }
+
+  .foto-card img {
+    height: 200px;
+  }
+
+  .legenda {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+
+  .rodape-texto {
+    font-size: 1.4rem;
+  }
+}
