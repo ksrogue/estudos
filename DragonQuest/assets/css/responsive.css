@@ -1,15 +1,13 @@
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+
+  .games, .gallery {
+    grid-column: span 2;
+  }
 
 }
-
-
-/* & div {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: flex-start;
-    flex: 1;
-    
-    border-bottom: 1px solid #6b728059;
-    padding-bottom: 8px;
-  } */
