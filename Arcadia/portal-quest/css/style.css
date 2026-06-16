@@ -1,0 +1,126 @@
+:root {
+    --bg-color: #0F172A;
+    --header: #1E293B;
+    --cards: #334155;
+    --border: #475569;
+    --title: #F8FAFC;
+    --text: #CBD5E1;
+    --button: #3B82F6;
+    --button-hvr: #2563EB;
+    --important: #F59E0B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+header {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+button {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background-color: var(--button);
+    padding: 6px;
+    color: var(--text);
+
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+button:hover {
+    background-color: var(--button-hvr);
+    color: var(--important);
+    transform: scale(1.1);
+}
+
+
+.logo {
+    color: var(--important);
+}
+.nav {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+}
+.nav a {
+    text-decoration: none;
+    color: var(--text);
+    transition: all .3s ease-in;
+}
+.nav a:hover {
+    color: var(--important);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    gap: 32px;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.hero h1 {
+    color: var(--title);
+    font-size: 1.5em;
+}
+.hero h3 {
+    color: var(--text);
+}
+
+.card-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+footer {
+    background-color: var(--cards);
+    border-top: 1px solid var(--border);
+    color: var(--text);
+    width: 100%;
+    padding: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+footer .social {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 1.5em;
+}   
+footer a {
+    text-decoration: none;
+    color: var(--text);
+    transition: all .3s ease-in;
+}
+footer a:hover {
+    color: var(--important);
+}
