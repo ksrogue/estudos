@@ -1,0 +1,269 @@
+:root {
+  --main-bg: #0b0813;
+  --card-bg: #161224;
+  --accent-neon: #8b5cf6;
+  --main-text: #f3f4f6;
+  --sec-text: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: var(--main-bg);
+  color: var(--sec-text);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--main-text);
+}
+button {
+  background-color: var(--accent-neon);
+  padding: 4px;
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+header {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.logo {
+  color: var(--accent-neon);
+}
+.nav {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  gap: 8px;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--sec-text);
+  transition: color 0.3s ease-in;
+}
+.nav a:hover {
+  color: var(--accent-neon);
+}
+
+main {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+@keyframes neonFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+    filter: blur(0);
+  }
+}
+@keyframes btnAnimation {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.hero {
+  position: relative;
+  max-width: 1200px;
+  width: 90%;
+  min-height: 300px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 8px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Mistura uma película escura sobre o vídeo com um sumiço total na base */
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 8, 19, 0.5) 0%,
+    rgba(11, 8, 19, 0.4) 60%,
+    var(--main-bg) 100%
+  );
+  z-index: 2;
+  pointer-events: none; /* Deixa o mouse clicar no botão que está atrás */
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.hero h1,
+.hero p,
+.hero button {
+  position: relative;
+  z-index: 5;
+}
+.hero h1 {
+  animation: neonFadeUp 0.8s ease-out forwards;
+}
+.hero p {
+  width: 80%;
+  opacity: 0;
+  animation: neonFadeUp 0.8s ease-out 0.3s forwards;
+}
+.hero button {
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  opacity: 0;
+  animation: btnAnimation 1s ease-out 0.6s forwards;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 90%;
+}
+
+.about-card {
+  background-color: var(--card-bg);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 8px;
+  transition: transform 0.3s ease-in;
+}
+.about-card:hover {
+  transform: translateY(-3px);
+}
+
+.form {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+
+  background-color: var(--card-bg);
+}
+.form p {
+  text-align: center;
+  margin: 0 16px;
+}
+.form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+form div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+form input {
+  border: none;
+  padding: 4px;
+  outline: none;
+  background-color: var(--sec-text);
+}
+form input:focus {
+  border: 1px solid var(--accent-neon);
+}
+.platform {
+  display: flex;
+  flex-direction: column;
+}
+.platform-wrapper {
+    gap: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.platform-wrapper label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  background-color: var(--card-bg);
+  padding: 16px;
+  border-top: 1px solid black;
+  text-align: center;
+}
