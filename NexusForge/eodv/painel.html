@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/painel.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <title>Painel do Personagem</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <span class="logo">Nexus Forge | Echoes of the Void</span>
+        <ul class="nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#">Beta</a></li>
+          <li><a href="#">Avatar</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Crie seu viajante do Vazio</h1>
+      <section class="avatar-container">
+        <img src="assets/images/void-warrior.png" alt="avatar do personagem" class="avatar-img"/>
+        <p class="avatar-name">Arandir</p>
+        <span class="class-span">classe selecionada: Guerreiro do Vazio</span>
+      </section>
+      <section class="class-select">
+        <h4>Classe</h4>
+        <div class="class-wrapper">
+          <div class="void-warrior class-card selected" onclick="selectClass('0')">
+            <h3>Guerreiro do Vazio</h3>
+            <span>Força brutal e armadura forjada nas estrelas mortas.</span>
+          </div>
+          <div class="arcane-mage class-card" onclick="selectClass('1')">
+            <h3>Mago Arcano</h3>
+            <span
+              >Controlador das fendas dimensionais e feitiços de energia
+              pura.</span
+            >
+          </div>
+          <div class="dark-ranger class-card" onclick="selectClass('2')">
+            <h3>Caçador Sombrio</h3>
+            <span
+              >Ágil como o pensamento, letal como o próprio silêncio do
+              espaço.</span
+            >
+          </div>
+        </div>
+        <div class="color-select">
+          <h4>Cor da Aura</h4>
+          <input type="color" name="color" id="color" value="#ff0000"/>
+        </div>
+      </section>
+      <button class="save-btn">Salvar Personagem</button>
+      <span class="btn-confirmed">Personagem criado com sucesso! Sua jornada começa em breve.</span>
+    </main>
+
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

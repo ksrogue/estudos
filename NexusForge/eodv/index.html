@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/media.css" />
+
     <title>Echoes of the Void</title>
   </head>
   <body>
     <header>
-      <span class="logo">Nexus Forge | Echoes of the Void</span>
-      <ul class="nav">
-        <li><a href="#">Início</a></li>
-        <li><a href="#about">Sobre o Jogo</a></li>
-        <li><a href="#">Mídias</a></li>
-        <li><a href="#">Beta</a></li>
-      </ul>
+      <nav>
+        <span class="logo">Nexus Forge | Echoes of the Void</span>
+        <ul class="nav">
+          <li><a href="#">Início</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#beta">Beta</a></li>
+          <li><a href="painel.html">Avatar</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
@@ -64,8 +68,8 @@
           Inscreva-se para receber novidades exclusivas e uma chave para os
           testes fechados.
         </p>
-       <form action="">
-        <div class="platform">
+        <form action="" id="beta">
+          <div class="platform">
             <p>Plataforma Favorita</p>
             <div class="platform-wrapper">
               <label>
@@ -95,8 +99,11 @@
             <input type="email" name="email" id="email" required />
           </div>
           <button class="form-btn">Cadastrar na Lista</button>
-          <span class="error-msg">Inscrição realizada com sucesso! Prepare-se para adentrar o Vazio.</span>
-       </form>
+          <span class="error-msg"
+            >Inscrição realizada com sucesso! Prepare-se para adentrar o
+            Vazio.</span
+          >
+        </form>
       </section>
     </main>
 
@@ -107,7 +114,6 @@
       </p>
     </footer>
 
-
-    <script src="scripts/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
