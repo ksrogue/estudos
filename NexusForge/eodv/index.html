@@ -12,7 +12,7 @@
       <span class="logo">Nexus Forge | Echoes of the Void</span>
       <ul class="nav">
         <li><a href="#">Início</a></li>
-        <li><a href="#">Sobre o Jogo</a></li>
+        <li><a href="#about">Sobre o Jogo</a></li>
         <li><a href="#">Mídias</a></li>
         <li><a href="#">Beta</a></li>
       </ul>
@@ -32,7 +32,7 @@
         <button>Garantir Acesso ao Beta</button>
       </section>
 
-      <section class="about">
+      <section class="about" id="about">
         <h2>Funcionalidades do Jogo</h2>
 
         <div class="about-card">
@@ -64,8 +64,8 @@
           Inscreva-se para receber novidades exclusivas e uma chave para os
           testes fechados.
         </p>
-        <form>
-          <div class="platform">
+       <form action="">
+        <div class="platform">
             <p>Plataforma Favorita</p>
             <div class="platform-wrapper">
               <label>
@@ -88,14 +88,15 @@
           </div>
           <div class="form-name">
             <label for="name">Seu nome</label>
-            <input type="text" name="name" required />
+            <input type="text" name="name" id="name" required />
           </div>
           <div class="form-email">
             <label for="email">Seu e-mail</label>
-            <input type="email" name="email" required />
+            <input type="email" name="email" id="email" required />
           </div>
-          <button>Cadastrar na Lista</button>
-        </form>
+          <button class="form-btn">Cadastrar na Lista</button>
+          <span class="error-msg">Inscrição realizada com sucesso! Prepare-se para adentrar o Vazio.</span>
+       </form>
       </section>
     </main>
 
@@ -105,5 +106,8 @@
         Void" é uma marca registrada.
       </p>
     </footer>
+
+
+    <script src="scripts/script.js"></script>
   </body>
 </html>

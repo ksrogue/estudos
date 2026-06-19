@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -186,6 +190,7 @@ main {
 .about {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 32px;
   width: 90%;
 }
@@ -198,7 +203,7 @@ main {
   flex-direction: column;
   gap: 8px;
 
-  padding: 8px;
+  padding: 16px 8px;
   transition: transform 0.3s ease-in;
 }
 .about-card:hover {
@@ -242,12 +247,15 @@ form input {
 form input:focus {
   border: 1px solid var(--accent-neon);
 }
+.form-btn {
+  padding: 6px;
+}
 .platform {
   display: flex;
   flex-direction: column;
 }
 .platform-wrapper {
-    gap: 16px;
+  gap: 16px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -259,7 +267,28 @@ form input:focus {
   flex-direction: column;
   align-items: center;
 }
+input[type="radio"] {
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  outline: none;
 
+  transition: border-color 0.3s ease-in;
+}
+input[type="radio"]:hover {
+  border-color: var(--accent-neon);
+}
+input[type="radio"]:checked {
+  border-color: var(--accent-neon);
+}
+
+.error-msg {
+  display: none;
+  color: green;
+  margin-top: -10px;
+}
 footer {
   width: 100%;
   background-color: var(--card-bg);
