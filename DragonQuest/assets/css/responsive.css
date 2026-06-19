@@ -1,4 +1,7 @@
 @media screen and (min-width: 900px) {
+  header {
+    position: inherit;
+  }
   nav {
     justify-content: space-around;
     gap: 50px;

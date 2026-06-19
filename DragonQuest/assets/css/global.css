@@ -116,6 +116,9 @@ a {
   font-size: 0.8em;
   color: var(--bright-golden);
 }
+.span-text:hover {
+  border-bottom: 1px solid var(--bright-golden);
+}
 .menu,
 .theme {
   font-size: 1.5em;
@@ -139,6 +142,9 @@ a {
 
   font-size: 0.8em;
   color: var(--sec-text);
+}
+.menu-bar li a {
+  transition: all .5s ease-in-out;
 }
 .menu-bar li a:hover {
   color: var(--main-golden);
@@ -175,11 +181,13 @@ main {
   color: #e5e7eb;
   font-family: var(--cinzel);
   text-shadow: 1px 1px 3px black;
+    animation: fadeUp .6s ease-in;
 }
 .featured-text {
   color: #fff;
   text-shadow: 1px 1px 3px black;
   background-color: rgba(0, 0, 0, 0.3);
+    animation: fadeUp .8s ease-in;
 }
 .featured-btn {
   border-radius: 5px;
@@ -312,4 +320,16 @@ main {
   width: 100%;
   border: 1px solid var(--border-div);
   border-radius: 10px;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

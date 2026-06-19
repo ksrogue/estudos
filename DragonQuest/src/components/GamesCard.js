@@ -43,9 +43,14 @@ class GamesCard extends HTMLElement {
   align-items: center;
   flex-shrink: 0;
   gap: 6px;
+  padding: 5px;
 
   scroll-snap-align: start;
-} 
+  transition: transform .5s ease-in-out;
+}
+  .games-container:hover {
+  transform: translateY(-3px);
+  } 
  a {text-decoration: none;} 
 .game-img {
   width: 100%;
