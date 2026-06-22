@@ -1,0 +1,64 @@
+:root {
+  --main-bg: #fafafa;
+  --main-bg-g: --main-bg-g: linear-gradient(180deg, #fafafa 0%, #f0fdf4 100%);
+
+  --card-border: #e5e7eb;
+  --card-bg: #ffffff;
+  --main-txt: #111827;
+  --sec-txt: #6b7280;
+  --span-txt: #16a34a;
+
+  --btn-bg: #166534;
+  --btn-border: #14532d;
+  --btn-hover: #15803d;
+  --btn-txt: #fff;
+
+  --focus: #10b981;
+  --focus-ring: rgba(16, 185, 129, 0.15);
+
+  --shadow: rgba(15, 23, 42, 0.06);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --link: #10b981;
+}
+
+.dark-theme {
+  --main-bg: #030712;
+  --main-bg-g: linear-gradient(180deg, #030712 0%, #052e16 100%);
+
+  --card-border: #1f2937;
+  --card-bg: #111827;
+  --main-txt: #f9fafb;
+  --sec-txt: #9ca3af;
+  --span-txt: #4ade80;
+
+  --btn-bg: #16a34a;
+  --btn-border: #22c55e;
+  --btn-hover: #15803d;
+  --btn-txt: #fff;
+
+  --focus: #34d399;
+  --focus-ring: rgba(52, 211, 153, 0.15);
+
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-bg);
+  background: var(--main-bg-g);
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

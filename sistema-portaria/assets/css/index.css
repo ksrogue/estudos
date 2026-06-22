@@ -1,0 +1,116 @@
+body {
+  position: relative;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+
+  & .header-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & h1 {
+    color: var(--main-txt);
+  }
+
+  & .btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+.btn-container .bi {
+  font-size: 1.4em;
+  color: var(--btn-bg);
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+}
+.btn-container .bi:hover {
+  color: var(--btn-hover);
+  transform: scale(1.05);
+}
+.info-bar {
+  text-align: center;
+  color: var(--warning);
+  border-bottom: 1px solid;
+}
+
+.login-container {
+  width: 90%;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  box-shadow: 3px 3px 5px var(--shadow);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+
+  & h2 {
+    color: var(--sec-txt);
+  }
+
+  & .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+.login-form input {
+  outline: none;
+  width: 150px;
+  padding: 4px;
+  border: 1px solid var(--card-border);
+}
+.login-form input:focus {
+  border-color: var(--focus);
+}
+
+.login-form button {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-txt);
+  width: 150px;
+  padding: 4px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+}
+.login-form button:hover {
+  background-color: var(--btn-hover);
+  transform: scale(1.05);
+}
+
+.login-container span {
+  color: var(--danger);
+}
+
+footer {
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  text-align: center;
+  color: var(--sec-txt);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  & a {
+    text-decoration: none;
+    color: var(--link);
+  }
+}
