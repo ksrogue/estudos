@@ -7,7 +7,14 @@ featuredImg.style.backgroundImage = 'url("assets/images/dq11.png")';
 featuredTitle.innerText = "Dragon Quest XI";
 featuredText.innerText = "Uma aventura inesquecível.";
 // News
-let newsList = [{ newsImg: "", newsTitle: "", newsTime: "" }];
+let newsList = [
+  {
+    newsImg: "",
+    newsTitle:
+      "Dragon Quest XII é finalmente anunciado, mas inteiramente refeito.",
+    newsTime: "",
+  },
+];
 
 // Games
 let gamesList = [
@@ -85,6 +92,14 @@ function toggleMenu() {
 const body = document.querySelector("body");
 const logo = document.querySelector(".logo");
 const themeBtn = document.querySelector(".theme");
+let currentTheme = localStorage.getItem("theme");
+
+if (currentTheme == "dark-theme") {
+  body.classList.add("dark-theme");
+  logo.src = "assets/images/logo-dark.png";
+} else {
+  logo.src = "assets/images/logo-light.png";
+}
 themeBtn.addEventListener("click", () => {
   body.classList.toggle("dark-theme");
 
@@ -93,8 +108,10 @@ themeBtn.addEventListener("click", () => {
   themeBtn.classList.toggle("bi-moon-fill", isDark);
   if (isDark) {
     logo.src = "assets/images/logo-dark.png";
+    localStorage.setItem("theme", "dark-theme");
   } else {
     logo.src = "assets/images/logo-light.png";
+    localStorage.setItem("theme", "light-theme");
   }
 
   console.log("tema mudado");
