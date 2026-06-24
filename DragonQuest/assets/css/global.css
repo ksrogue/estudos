@@ -321,6 +321,10 @@ main {
   width: 100%;
   border: 1px solid var(--border-div);
   border-radius: 10px;
+  transition: all .3s ease-in;
+}
+.gallery-img:hover {
+  transform: translateY(-3px);
 }
 
 @keyframes fadeUp {
