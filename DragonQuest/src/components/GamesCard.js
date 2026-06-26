@@ -14,10 +14,10 @@ class GamesCard extends HTMLElement {
     const card = document.createElement("div");
 
     let gameSrc =
-      this.getAttribute("game-src") || "assets/images/placeholder.png";
-    let gameAlt = this.getAttribute("game-alt") || "imagem_placeholder";
-    let gameLink = this.getAttribute("game-link") || "#";
-    let gameName = this.getAttribute("game-name") || "nome_jogo";
+      this.getAttribute("src") || "assets/images/placeholder.png";
+    let gameAlt = this.getAttribute("alt") || "imagem_placeholder";
+    let gameLink = this.getAttribute("link") || "#";
+    let gameName = this.getAttribute("name") || "nome_jogo";
 
     card.innerHTML = `
         <a href="${gameLink}" class="games-container">

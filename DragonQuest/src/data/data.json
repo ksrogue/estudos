@@ -1,0 +1,80 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "src": "dq12.png",
+      "alt": "imagem do jogo dragon quest 12",
+      "title": "Dragon Quest XII é finalmente anunciado, mas inteiramente refeito."
+    },
+    {
+      "id": 2,
+      "src": "dq11news.png",
+      "alt": "imagem do jogo dragon quest 11",
+      "title": "Dragon Quest XI é relançado para Nintendo Switch 2."
+    },
+    {
+      "id": 3,
+      "src": "dq8.png",
+      "alt": "imagem do jogo dragon quest 8",
+      "title": "Dragon Quest VIII Remake, um sonho tão distante assim?"
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "src": "dq1.png",
+      "title": "DQ I"
+    },
+    {
+      "id": 2,
+      "src": "dq2.png",
+      "title": "DQ II"
+    },
+    {
+      "id": 3,
+      "src": "dq3.png",
+      "title": "DQ III"
+    },
+    {
+      "id": 4,
+      "src": "dq4.png",
+      "title": "DQ IV"
+    },
+    {
+      "id": 5,
+      "src": "dq5.png",
+      "title": "DQ V"
+    },
+    {
+      "id": 6,
+      "src": "dq6.png",
+      "title": "DQ VI"
+    },
+    {
+      "id": 7,
+      "src": "dq7.png",
+      "title": "DQ VII"
+    },
+    {
+      "id": 8,
+      "src": "dq8.png",
+      "title": "DQ VIII"
+    },
+    {
+      "id": 9,
+      "src": "dq9.png",
+      "title": "DQ IX"
+    },
+    {
+      "id": 10,
+      "src": "dq10.png",
+      "title": "DQ X"
+    },
+    {
+      "id": 11,
+      "src": "dq11.png",
+      "title": "DQ XI"
+    }
+  ],
+  "images": []
+}

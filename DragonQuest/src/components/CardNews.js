@@ -13,11 +13,11 @@ class CardNews extends HTMLElement {
   build() {
     const card = document.createElement("div");
     let newsSrc =
-      this.getAttribute("news-src") || "assets/images/placeholder.png";
-    let newsAlt = this.getAttribute("news-alt") || "imagem_placeholder";
-    let newsLink = this.getAttribute("news-link") || "#";
-    let newsTitle = this.getAttribute("news-title") || "título da notícia";
-    let newsTime = this.getAttribute("news-time") || "postado em...";
+      this.getAttribute("src") || "assets/images/placeholder.png";
+    let newsAlt = this.getAttribute("alt") || "imagem_placeholder";
+    let newsLink = this.getAttribute("href") || "#";
+    let newsTitle = this.getAttribute("title") || "título da notícia";
+    let newsTime = this.getAttribute("time") || "postado em...";
     card.innerHTML = `
           <div class="news-card">
             <img src="${newsSrc}" alt="${newsAlt}">
