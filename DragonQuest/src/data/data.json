@@ -57,24 +57,23 @@
     },
     {
       "id": 8,
-      "src": "dq8.png",
+      "src": "dq81.png",
       "title": "DQ VIII"
     },
     {
       "id": 9,
-      "src": "dq9.png",
+      "src": "dq81.png",
       "title": "DQ IX"
     },
     {
       "id": 10,
-      "src": "dq10.png",
+      "src": "dq111.png",
       "title": "DQ X"
     },
     {
       "id": 11,
-      "src": "dq11.png",
+      "src": "dq111.png",
       "title": "DQ XI"
     }
-  ],
-  "images": []
+  ]
 }
