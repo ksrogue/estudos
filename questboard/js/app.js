@@ -2,36 +2,33 @@
 const questContainer = document.querySelector(".quests-container");
 const questCheckBox = document.querySelector(".quest-status");
 const greetings = document.querySelector(".greetings");
-const user = "David"
-
+const user = "David";
 
 function renderGreetings() {
   const time = Date.now();
   const now = new Date(time);
-  const hours = now.getHours().toString().padStart(2, "0");
+  const hours = now.getHours().toString();
 
-  if (hours >= 0 && hours <= 12) {
-    greetings.textContent = `Bom dia, ${user}!`
+  if (hours >= 0 && hours < 12) {
+    greetings.textContent = `Bom dia, ${user}!`;
   } else if (hours >= 12 && hours <= 18) {
-    greetings.textContent = `Boa tarde, ${user}!`
-  } else if (hours >= 18 && hours <= 0) {
-    greetings.textContent = `Boa noite, ${user}!`
+    greetings.textContent = `Boa tarde, ${user}!`;
+  } else {
+    greetings.textContent = `Boa noite, ${user}!`;
   }
 }
 
 renderGreetings();
 
 function getLevel() {
-    const levelText = document.querySelector(".level-text");
-    let level = 0;
-    for(let i = 0; i < 5; i ++) {
-        level++;
-    }
-    levelText.textContent = "Nível " + level;
+  const levelText = document.querySelector(".level-text");
+  let level = 0;
+  for (let i = 0; i < 5; i++) {
+    level++;
+  }
+  levelText.textContent = "Nível " + level;
 }
 getLevel();
-
-
 
 function renderMission(quest) {
   questContainer.innerHTML = "";
