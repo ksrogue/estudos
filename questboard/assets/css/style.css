@@ -27,6 +27,7 @@ body {
   align-items: center;
   gap: 16px;
   padding: 8px;
+  margin: 0 auto;
 }
 header {
   display: flex;
@@ -202,10 +203,6 @@ main {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: auto;
-
   width: 90%;
   border: 1px solid black;
   border-radius: 10px;

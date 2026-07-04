@@ -7,7 +7,7 @@ const user = "David";
 function renderGreetings() {
   const time = Date.now();
   const now = new Date(time);
-  const hours = now.getHours().toString();
+  const hours = now.getHours();
 
   if (hours >= 0 && hours < 12) {
     greetings.textContent = `Bom dia, ${user}!`;
@@ -20,15 +20,12 @@ function renderGreetings() {
 
 renderGreetings();
 
-function getLevel() {
-  const levelText = document.querySelector(".level-text");
-  let level = 0;
-  for (let i = 0; i < 5; i++) {
-    level++;
-  }
-  levelText.textContent = "Nível " + level;
-}
-getLevel();
+// function getLevel() {
+//   const levelText = document.querySelector(".level-text");
+//   let level = 1;
+//   levelText.textContent = "Nível " + level;
+// }
+// getLevel();
 
 function renderMission(quest) {
   questContainer.innerHTML = "";
