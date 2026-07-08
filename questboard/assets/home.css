@@ -1,0 +1,156 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+h2 {
+  font-size: 1em;
+}
+.status {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px var(--shadow);
+}
+.avatar-img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px var(--shadow);
+}
+.level {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.xp-container {
+  position: relative;
+  width: 90%;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.xp-progress {
+  width: 10%;
+  height: 100%;
+  background-color: var(--xp);
+  border-radius: 5px;
+
+  transition: width 0.3s ease;
+}
+.xp-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* tarefas */
+.add-mission {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 16px;
+}
+.add-mission h3 {
+  font-size: 0.9em;
+}
+.add-mission button {
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  color: var(--secondary-text);
+  background-color: var(--button);
+  border: var(--border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease-in,
+    background-color 0.5s ease-in-out;
+}
+.add-mission button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+.tasks {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-mission-container {
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  padding: 8px;
+
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.mission-icon {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px var(--shadow);
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.input-container input {
+  background-color: var(--main-bg);
+  border: 1px solid var(--border);
+  outline: none;
+  color: var(--secondary-text);
+  padding: 4px;
+}
+.input-status {
+  color: var(--danger);
+}
+.add-btn {
+  background-color: var(--button);
+  color: var(--button-text);
+  border: 1px solid var(--border);
+  box-shadow: 3px 3px 5px var(--shadow);
+  padding: 4px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+}
+.add-btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
