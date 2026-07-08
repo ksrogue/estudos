@@ -6,6 +6,8 @@ let currentTheme = localStorage.getItem("theme");
 const body = document.querySelector("body");
 if (currentTheme == "dark-theme") {
   body.classList.add("dark-theme");
+  themeButton.classList.remove("bi-moon-fill");
+  themeButton.classList.add("bi-brightness-high-fill");
 }
 themeButton.addEventListener("click", () => {
   body.classList.toggle("dark-theme");

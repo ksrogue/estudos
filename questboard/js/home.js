@@ -26,7 +26,7 @@ const tasks = document.querySelector(".tasks");
 const addMission = document.querySelector(".add-mission");
 const addMissionBtn = document.querySelector(".add-mission-btn");
 const addMissionContainer = document.querySelector(".add-mission-container");
-taskList = [];
+const taskList = [];
 if (taskList.length == 0) {
   addMission.style.display = "flex";
 }
