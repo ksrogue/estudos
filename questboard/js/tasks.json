@@ -1,8 +1,19 @@
 [
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "estudar 1 hora",  "desc": "aprender conceitos e praticar.", "time": 60, "xp": 50},
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "fazer exercício",  "desc": "na academia ou em casa.", "time": 30, "xp": 100},
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "publicar vídeos",  "desc": "criar e publicar videos pro canal.", "time": 120, "xp": 100},
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "jogar Fortnite",  "desc": "fazer uma pausa pra relaxar.", "time": 30, "xp": 25},
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "tarefas de casa",  "desc": "lavar louça, recolher as roupas.", "time": 60, "xp": 50},
-    {"id": 1, "checked": false, "icon": "icon.png", "name": "jogar no ps5",  "desc": "jogar um pouco até a hora de dormir.", "time": 120, "xp": 50}
+  {
+    "id": 1,
+    "checked": false,
+    "icon": "icon.png",
+    "name": "estudar 1 hora",
+    "desc": "aprender conceitos e praticar.",
+    "xp": 50
+  },
+   {
+    "id": 2,
+    "checked": false,
+    "icon": "icon.png",
+    "name": "estudar 1 hora",
+    "desc": "aprender conceitos e praticar.",
+    "xp": 70
+  }
+ 
 ]

@@ -44,7 +44,7 @@ h2 {
   overflow: hidden;
 }
 .xp-progress {
-  width: 10%;
+  width: 0%;
   height: 100%;
   background-color: var(--xp);
   border-radius: 5px;
@@ -62,39 +62,6 @@ h2 {
 }
 
 /* tarefas */
-.add-mission {
-  width: 100%;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 16px;
-}
-.add-mission h3 {
-  font-size: 0.9em;
-}
-.add-mission button {
-  width: 50px;
-  height: 50px;
-  font-size: 2em;
-  color: var(--secondary-text);
-  background-color: var(--button);
-  border: var(--border);
-  border-radius: 10px;
-  box-shadow: 3px 3px 5px var(--shadow);
-  cursor: pointer;
-
-  transition:
-    transform 0.3s ease-in,
-    background-color 0.5s ease-in-out;
-}
-.add-mission button:hover {
-  background-color: var(--button-hover);
-  transform: translateY(-2px);
-}
 .tasks {
   width: 90%;
   display: flex;
@@ -103,54 +70,63 @@ h2 {
   gap: 8px;
 }
 
-.add-mission-container {
+.task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 16px;
+
   width: 100%;
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 3px 3px 5px var(--shadow);
-  padding: 8px;
-
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
 }
-.mission-icon {
+.task-img {
   width: 50px;
   height: 50px;
   border: 1px solid var(--border);
   border-radius: 50%;
   box-shadow: 3px 3px 5px var(--shadow);
+
+  overflow: hidden;
 }
-.input-container {
+.task-img img {
+  width: 100%;
+  object-fit: cover;
+}
+.checkbox {
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--border);
+  box-shadow: 1px 1px 3px var(--shadow);
+  background-color: var(--main-bg);
+  padding: 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-}
-.input-container input {
-  background-color: var(--main-bg);
-  border: 1px solid var(--border);
-  outline: none;
-  color: var(--secondary-text);
-  padding: 4px;
-}
-.input-status {
-  color: var(--danger);
-}
-.add-btn {
-  background-color: var(--button);
-  color: var(--button-text);
-  border: 1px solid var(--border);
-  box-shadow: 3px 3px 5px var(--shadow);
-  padding: 4px;
+  justify-content: center;
+  color: green;
+  font-family: var(--trd-font);
+  font-weight: bold;
+
   cursor: pointer;
-
-  transition: all 0.3s ease-in;
 }
-.add-btn:hover {
-  background-color: var(--button-hover);
-  transform: translateY(-2px);
+.checked {
+  border-color: green;
 }
-
+.task-xp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.task-number {
+  color: purple;
+  font-weight: bold;
+}
+.task-xp span {
+  color: purple;
+}

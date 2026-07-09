@@ -26,41 +26,66 @@ const tasks = document.querySelector(".tasks");
 const addMission = document.querySelector(".add-mission");
 const addMissionBtn = document.querySelector(".add-mission-btn");
 const addMissionContainer = document.querySelector(".add-mission-container");
-const taskList = [];
-if (taskList.length == 0) {
-  addMission.style.display = "flex";
-}
-addMissionBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  addMissionContainer.style.display = "flex";
-});
 
-//  salva a missão no array;
-const missionName = document.querySelector(".mission-name");
-const missionDesc = document.querySelector(".mission-desc");
-const inputStatus = document.querySelector(".input-status");
-const addBtn = document.querySelector(".add-btn");
-addBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (missionName.value.trim() !== "" && missionDesc.value.trim() !== "") {
-    const randomXp = Math.floor(Math.random() * 9) * 5 + 10;
-    const newTask = {
-      id: Date.now(),
-      name: missionName.value,
-      desc: missionDesc.value,
-      completed: false,
-      xp: randomXp,
-    };
-    taskList.push(newTask);
-    addMissionContainer.style.display = "none";
-    missionName.value = "";
-    missionDesc.value = "";
+// pega os dados do json;
 
-    console.log(taskList);
-    taskRender();
-  } else {
-    inputStatus.textContent = "adicione os dados";
+async function getTaskData() {
+  try {
+    const response = await fetch("../js/tasks.json");
+
+    if (!response.ok) {
+      throw new Error("erro na requisição da api " + response.status);
+    }
+    // renderiza as missões na tela;
+    const data = await response.json();
+    data.forEach((task) => {
+      const newTask = document.createElement("div");
+      newTask.classList.add("task-container");
+      newTask.innerHTML = `
+          <div class="checkbox" onclick="checkTask(${task.id}, ${task.xp})"></div>
+          <div class="task-img"></div>
+          <div class="text-container">
+            <h3 class="task-title">${task.name}</h3>
+            <span class="task-desc">${task.desc}</span>
+          </div>
+          <div class="task-xp">
+            <div class="task-number">+${task.xp}</div>
+            <span>XP</span>
+          </div>
+      `;
+
+      tasks.appendChild(newTask);
+    });
+  } catch (error) {
+    console.error(`houve um erro:`, error);
   }
-});
+}
+getTaskData();
 
-// renderiza a missão na tela;
+//  adiciona o efeito a missão selecionada;
+function checkTask(id, xp) {
+  const checkboxes = document.querySelectorAll(".checkbox");
+  checkboxes[id - 1].classList.add("checked");
+  checkboxes[id - 1].textContent = "X";
+  checkboxes[id - 1].onclick = null;
+
+  getXp(xp);
+}
+
+let currentXp = 0;
+let level = 1;
+function getXp(xp) {
+  const xpBar = document.querySelector(".xp-progress");
+  const levelNumber = document.querySelector(".level-number");
+
+  const newXp = currentXp + xp;
+  currentXp = newXp;
+  xpBar.style.width = `${newXp}%`;
+
+  while (currentXp >= 100) {
+    currentXp -= 100;
+    level++;
+    levelNumber.textContent = `nível ${level}`;
+    xpBar.style.width = `${currentXp}%`;
+  }
+}
