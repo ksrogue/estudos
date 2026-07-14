@@ -74,7 +74,7 @@ body {
 
   background-color: var(--main-bg);
   background-image: url(../images/body-bg.png);
-  background-position: bottom;
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -135,4 +135,16 @@ span {
   font-family: var(--sec-font);
   font-size: 0.9em;
   color: var(--secondary-text);
+}
+
+
+
+@media screen and (min-width: 900px) {
+  body {
+    background-size: cover;
+  }
+  main {
+    max-width: 600px;
+    height: 100%;
+  }
 }
