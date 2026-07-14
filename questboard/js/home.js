@@ -116,3 +116,4 @@ function cardRender(open, close, type) {
 // todo: salvar a array em localstorage;
 // todo: mostrar o nome do usuário logado;
 // todo: atualizar o progresso da experiencia e salvar no localstorage;
+// todo: criar modal de seleção de icones pras tarefas;
