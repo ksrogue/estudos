@@ -70,63 +70,201 @@ h2 {
   gap: 8px;
 }
 
-.task-container {
+.add-task-container {
+  width: 100%;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 3px 3px 5px var(--shadow);
+
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
+
+  gap: 8px;
+}
+.add-task-btn {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--shadow);
+  width: 25px;
+  height: 25px;
+  background-color: var(--button);
+  font-weight: bolder;
+
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.add-task-btn:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-hover);
+}
+
+.new-task-container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px var(--shadow);
+
+  width: 100%;
   padding: 16px;
 
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  
+  transform: translateY(-70px);
+  animation: moveDown .3s forwards;
+}
+.close-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.close-container span {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--shadow);
+  background-color: var(--button);
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+  font-weight: bolder;
+
+  transition: all .3s ease-in;
+}
+.close-container span:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-hover);
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: repeate(2, auto);
+  gap: 8px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--main-bg);
+  box-shadow: 3px 3px 5px var(--shadow);
+  grid-row: span 2;
+}
+.icon img {
+  width: 100%;
+}
+.input-name, .input-desc {
+  background-color: var(--main-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 2px;
+  outline: none;
+  color: var(--secondary-text);
+  padding-left: 8px;
+}
+.create-task-btn {
+  width: 60px;
+  background-color: var(--button);
+  border: 1px solid var(--button);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--shadow);
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.create-task-btn:hover {
+  transform: translateY(-2px);
+  background-color: var(--button-hover);
+}
+.warning-container {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+.warning-text {
+  display: none;
+  color: var(--warning);
+}
+.task-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.task {
   width: 100%;
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: 3px 3px 5px var(--shadow);
-}
-.task-img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  box-shadow: 3px 3px 5px var(--shadow);
+  padding: 16px;
 
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
-.task-img img {
-  width: 100%;
-  object-fit: cover;
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-.checkbox {
-  width: 15px;
-  height: 15px;
+.check-button, .del-button {
+  width: 25px;
+  height: 25px;
   border: 1px solid var(--border);
+  border-radius: 5px;
   box-shadow: 1px 1px 3px var(--shadow);
   background-color: var(--main-bg);
-  padding: 10px;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: green;
-  font-family: var(--trd-font);
-  font-weight: bold;
+  padding: 4px;
+
+  color: var(--secondary-text);
 
   cursor: pointer;
 }
-.checked {
-  border-color: green;
+.check-button {
+  color: var(--success);
 }
-.task-xp {
+.exp-container {
+  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
-.task-number {
+.exp-container span {
   color: purple;
   font-weight: bold;
 }
-.task-xp span {
+.exp {
+  font-family: var(--trd-font);
+  font-weight: bolder;
   color: purple;
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-70px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.checked {
+  border-color: var(--success);
 }
