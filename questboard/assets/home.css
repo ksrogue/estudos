@@ -94,7 +94,7 @@ h2 {
   font-weight: bolder;
 
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .add-task-btn:hover {
   transform: translateY(-2px);
@@ -114,10 +114,6 @@ h2 {
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-
-  
-  transform: translateY(-70px);
-  animation: moveDown .3s forwards;
 }
 .close-container {
   display: flex;
@@ -136,7 +132,7 @@ h2 {
   color: #000;
   font-weight: bolder;
 
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .close-container span:hover {
   transform: translateY(-2px);
@@ -158,11 +154,18 @@ h2 {
   background-color: var(--main-bg);
   box-shadow: 3px 3px 5px var(--shadow);
   grid-row: span 2;
+
+  transition: .3s ease-in;
+  cursor: pointer;
 }
 .icon img {
   width: 100%;
 }
-.input-name, .input-desc {
+.icon:hover {
+  transform: translateY(-2px);
+}
+.input-name,
+.input-desc {
   background-color: var(--main-bg);
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -178,7 +181,7 @@ h2 {
   border-radius: 5px;
   box-shadow: 1px 1px 3px var(--shadow);
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .create-task-btn:hover {
   transform: translateY(-2px);
@@ -212,20 +215,32 @@ h2 {
   flex-direction: row;
   gap: 8px;
 }
+.task-icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--main-bg);
+  box-shadow: 3px 3px 5px var(--shadow);
+}
+.task-icon img {
+  width: 100%;
+}
 .button-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-.check-button, .del-button {
+.check-button,
+.del-button {
   width: 25px;
   height: 25px;
   border: 1px solid var(--border);
   border-radius: 5px;
   box-shadow: 1px 1px 3px var(--shadow);
   background-color: var(--main-bg);
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -244,7 +259,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .exp-container span {
   color: purple;
@@ -256,15 +270,43 @@ h2 {
   color: purple;
 }
 
-@keyframes moveDown {
-  from {
-    transform: translateY(-70px);
-  }
-  to {
-    transform: translateY(0px);
-  }
-}
 
 .checked {
   border-color: var(--success);
+}
+
+.icon-container {
+  z-index: 999;
+  width: 200px;
+  height: 200px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
+
+  position: fixed;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+}
+.item {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background-color: var(--main-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--shadow);
+
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.item:hover {
+  transform: translateY(-2px);
+}
+
+.selected {
+  border-color: var(--gold);
 }
