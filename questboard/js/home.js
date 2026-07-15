@@ -29,13 +29,12 @@ const addTaskContainer = document.querySelector(".add-task-container");
 const newTaskContainer = document.querySelector(".new-task-container");
 const addTaskBtn = document.querySelector(".add-task-btn");
 addTaskBtn.addEventListener("click", () => {
-
   cardRender(newTaskContainer, addTaskContainer, "flex");
 });
 
 // renderiza os icones;
 const iconContainer = document.querySelector(".icon-container");
-for(let i = 1; i < 10; i++) {
+for (let i = 1; i < 10; i++) {
   const newIcon = document.createElement("img");
   newIcon.classList.add("item");
   newIcon.src = `../assets/images/icons/icon${i}.png`;
@@ -56,7 +55,7 @@ icons.forEach((i) => {
     i.classList.add("selected");
     icon.src = i.src;
     iconContainer.style.display = "none";
-  }); 
+  });
 });
 function randomNumber() {
   const randomNumber = (Math.floor(Math.random() * (10 - 2 + 1)) + 2) * 10;
@@ -80,7 +79,6 @@ createTaskBtn.addEventListener("click", (e) => {
     };
     tasks.push(newTask);
 
-    
     clearInput();
     taskRender();
     warningText.style.display = "none";
@@ -94,7 +92,6 @@ createTaskBtn.addEventListener("click", (e) => {
 
 const closeBtn = document.querySelector(".close-btn");
 closeBtn.addEventListener("click", () => {
-
   cardRender(addTaskContainer, newTaskContainer, "flex");
   clearInput();
   iconContainer.style.display = "none";
@@ -103,7 +100,7 @@ closeBtn.addEventListener("click", () => {
 function clearInput() {
   inputName.value = "";
   inputDesc.value = "";
-  icon.src = "../assets/images/icons/icon1.png"
+  icon.src = "../assets/images/icons/icon1.png";
 }
 
 function taskRender() {
@@ -114,7 +111,7 @@ function taskRender() {
     newTask.innerHTML = `
     <div class="button-container">
               <div class="check-button"></div>
-              <div class="del-button">
+              <div class="del-button" onclick="deleteTask(${t.id - 1})">
                 <i class="bi bi-trash3-fill"></i>
               </div>
             </div>
@@ -135,16 +132,17 @@ function taskRender() {
   });
 }
 
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  taskRender();
+}
+
 function cardRender(open, close, type) {
   open.style.display = type;
   close.style.display = "none";
 }
 
-
-
 // todo: adicionar comportamento no botão de marcar e de apagar;
 // todo: salvar a array em localstorage;
 // todo: mostrar o nome do usuário logado;
 // todo: atualizar o progresso da experiencia e salvar no localstorage;
-
-
