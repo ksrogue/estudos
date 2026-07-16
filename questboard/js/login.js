@@ -7,12 +7,14 @@ const errorTxt = document.querySelector(".error");
 
 const users = [
   {
-    username: "ksrogue",
-    password: "ksrogue123",
+    username: "admin",
+    password: "admin",
+    name: "David",
+    level: 1,
+    currentXp: 0,
+    nextLevelXp: 100,
   },
 ];
-
-
 
 
 // faz a autenticação do usuário;
@@ -26,7 +28,7 @@ loginButton.addEventListener("click", (e) => {
   if (authUser) {
     // usuário logado com sucesso.
     sessionStorage.setItem("userLogged", "true");
-    window.location.href = "pages/quests.html"
+    window.location.href = "pages/quests.html";
   } else {
     errorTxt.innerHTML = "usuário ou senha inválidos.";
     login.value = "";

@@ -1,5 +1,11 @@
 // const userLogged = sessionStorage.getItem("userLogged") === "true";
 const userLogged = true;
+const user = {
+  name: "David",
+  level: 1,
+  currentXp: 0,
+  nextLevelXp: 100,
+};
 if (!userLogged)
   document.querySelector("body").innerHTML =
     `<h1 style="text-align: center">O usuário precisa estar logado.</h1>`;
@@ -11,11 +17,11 @@ function greetingsMessage() {
   const hour = time.getHours();
 
   if (hour >= 12 && hour < 18) {
-    greetings.innerHTML = "BOA TARDE, DAVID!";
+    greetings.innerHTML = `BOA TARDE, ${user.name.toUpperCase()}`;
   } else if (hour >= 18 && hour <= 23) {
-    greetings.innerHTML = "BOA NOITE, DAVID!";
+    greetings.innerHTML = `BOA NOITE, ${user.name.toUpperCase()}`;
   } else {
-    greetings.innerHTML = "BOM DIA, DAVID!";
+    greetings.innerHTML = `BOM DIA, ${user.name.toUpperCase()}`;
   }
 }
 
@@ -110,7 +116,7 @@ function taskRender() {
     newTask.classList.add("task");
     newTask.innerHTML = `
     <div class="button-container">
-              <div class="check-button"></div>
+              <div class="check-button ${t.checked ? "checked" : ""}" onclick="checkTask(${t.id - 1}, ${t.xp})">${t.checked ? "X" : ""}</div>
               <div class="del-button" onclick="deleteTask(${t.id - 1})">
                 <i class="bi bi-trash3-fill"></i>
               </div>
@@ -137,12 +143,34 @@ function deleteTask(index) {
   taskRender();
 }
 
+function checkTask(index, xp) {
+  tasks[index].checked = true;
+  getExp(xp);
+  taskRender();
+}
+
 function cardRender(open, close, type) {
   open.style.display = type;
   close.style.display = "none";
 }
 
-// todo: adicionar comportamento no botão de marcar e de apagar;
+const xpProgress = document.querySelector(".xp-progress");
+const xpText = document.querySelector(".xp-text");
+const levelNumber = document.querySelector(".level-number");
+function getExp(exp) {
+  user.currentXp += exp;
+  xpRender();
+  if (user.currentXp >= user.nextLevelXp) {
+    user.level++;
+    levelNumber.textContent = "nível " + user.level;
+    user.currentXp = 0;
+    xpRender();    
+  }
+}
+function xpRender() {
+  xpProgress.style.width = user.currentXp + "%";
+  xpText.textContent = `${user.currentXp}/${user.nextLevelXp}`;
+}
 // todo: salvar a array em localstorage;
 // todo: mostrar o nome do usuário logado;
 // todo: atualizar o progresso da experiencia e salvar no localstorage;

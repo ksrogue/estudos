@@ -273,6 +273,7 @@ h2 {
 
 .checked {
   border-color: var(--success);
+  pointer-events: none;
 }
 
 .icon-container {
