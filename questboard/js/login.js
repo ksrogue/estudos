@@ -1,5 +1,4 @@
 // const themeButton;
-const themeButton = document.querySelector(".theme-btn");
 const loginContainer = document.querySelector(".login-container");
 const loginButton = document.querySelector(".login-button");
 const login = document.querySelector("#login");
@@ -8,32 +7,17 @@ const errorTxt = document.querySelector(".error");
 
 const users = [
   {
-    username: "ksrogue",
-    password: "ksrogue123",
+    username: "admin",
+    password: "admin",
+    name: "David",
+    level: 1,
+    currentXp: 0,
+    nextLevelXp: 100,
   },
 ];
 
-// tema claro / escuro;
-let currentTheme = localStorage.getItem("theme");
-const body = document.querySelector("body");
-if(currentTheme == "dark-theme") {
-    body.classList.add("dark-theme");
-}
-themeButton.addEventListener("click", () => {
-  body.classList.toggle("dark-theme");
-  if (body.classList.contains("dark-theme")) {
-    // tema escuro;
-    localStorage.setItem("theme", "dark-theme");
-    themeButton.classList.remove("bi-moon-fill");
-    themeButton.classList.add("bi-brightness-high-fill");
-  } else {
-    // tema claro;
-    localStorage.setItem("theme", "light-theme");
-    themeButton.classList.remove("bi-brightness-high-fill");
-    themeButton.classList.add("bi-moon-fill");
-  }
-});
 
+// faz a autenticação do usuário;
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -43,8 +27,8 @@ loginButton.addEventListener("click", (e) => {
 
   if (authUser) {
     // usuário logado com sucesso.
-    errorTxt.style.color = "green";
-    errorTxt.innerHTML = "usuário logado";
+    sessionStorage.setItem("userLogged", "true");
+    window.location.href = "pages/quests.html";
   } else {
     errorTxt.innerHTML = "usuário ou senha inválidos.";
     login.value = "";
