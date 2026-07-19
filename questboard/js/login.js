@@ -9,7 +9,7 @@ const users = [
   {
     username: "admin",
     password: "admin",
-    name: "David",
+    name: "Giovanna",
     level: 1,
     currentXp: 0,
     nextLevelXp: 100,
@@ -27,6 +27,7 @@ loginButton.addEventListener("click", (e) => {
 
   if (authUser) {
     // usuário logado com sucesso.
+    sessionStorage.setItem("user", JSON.stringify(users[0]));
     sessionStorage.setItem("userLogged", "true");
     window.location.href = "pages/quests.html";
   } else {

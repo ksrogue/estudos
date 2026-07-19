@@ -1,11 +1,13 @@
-// const userLogged = sessionStorage.getItem("userLogged") === "true";
-const userLogged = true;
-const user = {
-  name: "David",
-  level: 1,
-  currentXp: 0,
-  nextLevelXp: 100,
-};
+const userLogged = sessionStorage.getItem("userLogged") === "true";
+// const userLogged = true;
+const user = JSON.parse(sessionStorage.getItem("user"));
+console.log(user);
+// const user = {
+//   name: "David",
+//   level: 1,
+//   currentXp: 0,
+//   nextLevelXp: 100,
+// };
 if (!userLogged)
   document.querySelector("body").innerHTML =
     `<h1 style="text-align: center">O usuário precisa estar logado.</h1>`;
@@ -84,6 +86,9 @@ createTaskBtn.addEventListener("click", (e) => {
       xp: randomNumber(),
     };
     tasks.push(newTask);
+    sessionStorage.setItem("savedTasks", JSON.stringify(tasks));
+    const storedTasks = JSON.parse(sessionStorage.getItem("savedTasks"));
+    console.log(storedTasks)
 
     clearInput();
     taskRender();
