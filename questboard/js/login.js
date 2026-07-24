@@ -12,23 +12,25 @@ const users = [
     name: "Giovanna",
     level: 1,
     currentXp: 0,
-    nextLevelXp: 100,
+    nextLevelXp: 1000,
   },
 ];
-
 
 // faz a autenticação do usuário;
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   const authUser = users.find(
-    (u) => u.username == login.value && u.password === password.value,
+    (u) => u.username === login.value && u.password === password.value,
   );
 
   if (authUser) {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    const userToSave =
+      savedUser && savedUser.username === authUser.username ? savedUser : authUser;
     // usuário logado com sucesso.
-    sessionStorage.setItem("user", JSON.stringify(users[0]));
-    sessionStorage.setItem("userLogged", "true");
+    localStorage.setItem("user", JSON.stringify(userToSave));
+    localStorage.setItem("userLogged", "true");
     window.location.href = "pages/quests.html";
   } else {
     errorTxt.innerHTML = "usuário ou senha inválidos.";
