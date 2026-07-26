@@ -14,6 +14,14 @@ const users = [
     currentXp: 0,
     nextLevelXp: 1000,
   },
+  {
+    username: "ksrogue",
+    password: "admin",
+    name: "David",
+    level: 1,
+    currentXp: 0,
+    nextLevelXp: 1000,
+  },
 ];
 
 // faz a autenticação do usuário;
@@ -38,3 +46,25 @@ loginButton.addEventListener("click", (e) => {
     password.value = "";
   }
 });
+
+
+// register
+const avatarContainer = document.querySelector(".avatar-menu");
+for(let i = 1; i < 10; i++) {
+  const item = document.createElement("div");
+  item.classList.add("avatar-item");
+
+  avatarContainer.appendChild(item)
+}
+const avatar = document.querySelector(".avatar-container");
+avatar.addEventListener("click", (e) => {
+  e.preventDefault();
+  avatarContainer.style.display = "grid"
+})
+const registerContainer = document.querySelector(".register-container");
+const registerLink = document.querySelector(".register-link");
+registerLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  loginContainer.style.display = "none";
+  registerContainer.style.display = "flex";
+})

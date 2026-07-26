@@ -1,6 +1,11 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-
-.login-container {
+.login-container, .register-container {
   width: 90%;
   max-width: 400px;
   border: 1px solid var(--border);
@@ -30,7 +35,7 @@ input {
   background-color: var(--bg);
   color: var(--secondary-text);
 }
-.login-button {
+.login-button, .register-button {
   padding: 4px;
   width: 100px;
   border: 1px solid var(--border);
@@ -42,7 +47,7 @@ input {
   cursor: pointer;
   transition: background-color 0.6s ease-in-out;
 }
-.login-button:hover {
+.login-button:hover, .register-button:hover {
   background-color: var(--button-hover);
 }
 
@@ -60,6 +65,53 @@ input {
 .register-link:hover {
     color: var(--link-hover);
     transform: translateY(-2px);
+}
+
+.register-container {
+  position: relative;
+  display: none;
+}
+.back-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 8px;
+}
+.avatar-container, .avatar-item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: all .3s ease-in;
+}
+.avatar-container:hover, .avatar-item:hover {
+  transform: translateY(-3px);
+}
+.avatar-menu {
+  width: 170px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  padding: 4px;
+
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+  position: absolute;
+}
+.avatar-item {
+  aspect-ratio: 1/1;
 }
 /* footer */
 footer {
