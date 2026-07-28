@@ -51,7 +51,7 @@ input {
   background-color: var(--button-hover);
 }
 
-.error {
+.error, .register-error {
   color: var(--danger);
 }
 

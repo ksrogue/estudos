@@ -24,7 +24,8 @@ if (!userLogged || !user) {
   greetingsMessage();
 
   // array com as tarefas que serão adicionadas;
-  const tasks = JSON.parse(localStorage.getItem("savedTasks")) || [];
+  // const tasks = JSON.parse(localStorage.getItem("savedTasks")) || [];
+  const tasks = user.tasks || [];
 
   // mostrar container de adicionar missão;
   const addTaskContainer = document.querySelector(".add-task-container");
@@ -81,7 +82,6 @@ if (!userLogged || !user) {
       };
       tasks.push(newTask);
       localStorage.setItem("savedTasks", JSON.stringify(tasks));
-      console.log(tasks);
 
       clearInput();
       taskRender();
@@ -140,7 +140,8 @@ if (!userLogged || !user) {
     const index = tasks.findIndex((t) => t.id === id);
     if (index !== -1) {
       tasks.splice(index, 1);
-      localStorage.setItem("savedTasks", JSON.stringify(tasks));
+      // localStorage.setItem("savedTasks", JSON.stringify(tasks));
+      saveUserData();
       taskRender();
     }
   }
@@ -149,7 +150,8 @@ if (!userLogged || !user) {
     const index = tasks.findIndex((t) => t.id === id);
     if (index !== -1) {
       tasks[index].checked = true;
-      localStorage.setItem("savedTasks", JSON.stringify(tasks));
+      // localStorage.setItem("savedTasks", JSON.stringify(tasks));
+      saveUserData();
       getExp(xp);
       taskRender();
     }
@@ -170,7 +172,8 @@ if (!userLogged || !user) {
       user.level++;
       user.currentXp = user.currentXp - user.nextLevelXp;
     }
-    localStorage.setItem("user", JSON.stringify(user));
+    // localStorage.setItem("user", JSON.stringify(user));
+    saveUserData();
     userRender();
   }
   function userRender() {
@@ -181,4 +184,17 @@ if (!userLogged || !user) {
 
   taskRender();
   userRender();
+}
+
+function saveUserData() {
+  user.tasks = tasks;
+
+  localStorage.setItem("user", JSON.stringify(user));
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const index = users.findIndex((u) => u.username === user.username);
+  if (index != -1) {
+    users[index] = user;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
 }
