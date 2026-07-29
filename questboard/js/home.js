@@ -184,7 +184,6 @@ if (!userLogged || !user) {
 
   taskRender();
   userRender();
-}
 
 function saveUserData() {
   user.tasks = tasks;
@@ -198,3 +197,6 @@ function saveUserData() {
     localStorage.setItem("users", JSON.stringify(users));
   }
 }
+
+}
+
