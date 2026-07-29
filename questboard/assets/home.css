@@ -142,7 +142,7 @@ h2 {
 .input-container {
   display: grid;
   grid-template-columns: 60px 1fr;
-  grid-template-rows: repeate(2, auto);
+  grid-template-rows: repeat(2, auto);
   gap: 8px;
 }
 

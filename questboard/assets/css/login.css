@@ -133,6 +133,17 @@ footer a {
   color: var(--link);
 }
 
+.back-button {
+  color: var(--secondary-text);
+  padding: 4px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.back-button:hover {
+  transform: translateY(-2px);
+}
+
 
 @media screen and (min-width: 900px) {
     body {

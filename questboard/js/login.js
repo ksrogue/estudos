@@ -76,10 +76,11 @@ registerBtn.addEventListener("click", (e) => {
       if (u.username === login) {
         span.innerText = "nome de usuário existente";
         return;
-      }
-      if (password.length < 8) {
-        span.innerText = "requisitos da senha inválidos";
-        return;
+      } else {
+        if (password.length < 8) {
+          span.innerText = "requisitos da senha inválidos";
+          return;
+        }
       }
     });
     const newUser = {
@@ -108,3 +109,13 @@ function changeWindow(open, close) {
   open.style.display = "flex";
   close.style.display = "none";
 }
+
+const backButton = document.querySelector(".back-button");
+backButton.addEventListener("click", () => {
+  name.value = "";
+  login.value = "";
+  password.value = "";
+  avatarContainer.style.display = "none";
+  changeWindow(loginContainer, registerContainer); 
+  // TODO revisar o projeto;
+});
