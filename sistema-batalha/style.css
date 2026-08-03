@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --main-font: "Pixelify Sans", sans-serif;
+  --sec-font: "poppins", sans-serif;
+
+  --hp-bar: #45d35c;
+  --hp-bar-bg: #163a22;
+
+  --border: #d8b15a;
+
+  --name: #f6f3e7;
+
+  --skill-bg: #142b59;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  image-rendering: pixelated;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(assets/battleback.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* resultado */
+.versus {
+    font-family: var(--sec-font);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.result-container {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  & .move-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 16px;
+    & .player-move,
+    .enemy-move {
+      width: 75px;
+      height: 75px;
+      background-color: var(--skill-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 3px 3px 5px var(--shadow);
+      overflow: hidden;
+      & .move-name {
+        width: 100%;
+        background-color: black;
+        font-family: var(--main-font);
+        color: var(--name);
+        text-align: center;
+      }
+      & .icon-move {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  & .winner-container {
+    width: 50%;
+    height: 30px;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--skill-bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px var(--shadow);
+    text-align: center;
+    font-family: var(--sec-font);
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--border);
+    text-shadow: 3px 3px 5px black;
+  }
+}
+
+/* enemy */
+.enemy-hp-number, .player-hp-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8em;
+    font-family: var(--sec-font);
+    font-weight: thin;
+    padding-left: 2px;
+    position: absolute;
+}
+.enemy-container,
+.player-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  & .hp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    & .enemy-name,
+    .player-name {
+      font-family: var(--main-font);
+      color: var(--name);
+      text-shadow: 3px 3px 5px var(--shadow);
+    }
+    & .enemy-bar,
+    .player-bar {
+      width: 150px;
+      height: 20px;
+      background-color: var(--hp-bar-bg);
+      border: 1px solid var(--border);
+      box-shadow: 3px 3px 5px var(--shadow);
+      overflow: hidden;
+      & .enemy-progress,
+      .player-progress {
+        width: 90%;
+        height: 100%;
+        background-color: var(--hp-bar);
+        transition: all .3s ease-in;
+      }
+    }
+  }
+  & .enemy-sprite {
+    width: 75px;
+    margin-left: 32px;
+    & img {
+      width: 100%;
+      filter: drop-shadow(3px 3px 5px var(--shadow));
+    }
+  }
+  & .player-sprite {
+    width: 100px;
+    margin-right: 16px;
+    & img {
+      width: 100%;
+      filter: drop-shadow(3px 3px 5px var(--shadow));
+    }
+  }
+}
+.player-container {
+  align-items: flex-end;
+  & .hp-container {
+    align-items: flex-end;
+  }
+}
+
+/* skillbar */
+.skill-bar {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding: 4px; */
+  gap: 16px;
+  & .skill {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--skill-bg);
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px var(--shadow);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    & img {
+        width: 100%;
+        max-height: 100%; 
+    }
+  }
+  & .skill:hover {
+    transform: scale(1.05);
+  }
+}

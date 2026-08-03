@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Batalha</title>
+  </head>
+  <body>
+    <section class="result-container">
+      <div class="move-container">
+        <div class="player-move">
+          <div class="move-name">Hero</div>
+          <div class="icon-move"></div>
+        </div>
+        <div class="versus">X</div>
+        <div class="enemy-move">
+          <div class="move-name">Enemy</div>
+          <div class="icon-move"></div>
+        </div>
+      </div>
+      <div class="winner-container"></div>
+    </section>
+    <section class="enemy-container">
+      <div class="hp-container">
+        <div class="enemy-name">enemy</div>
+        <div class="enemy-bar">
+          <div class="enemy-hp-number">100/100</div>
+          <div class="enemy-progress"></div>
+        </div>
+      </div>
+      <div class="enemy-sprite">
+        <img src="assets/enemy_sprite.png" alt="imagem do inimigo" />
+      </div>
+    </section>
+    <section class="player-container">
+      <div class="player-sprite">
+        <img src="assets/player_sprite.png" alt="imagem do jogador" />
+      </div>
+      <div class="hp-container">
+        <div class="player-name">player</div>
+        <div class="player-bar">
+            <div class="player-hp-number">100/100</div>
+          <div class="player-progress"></div>
+        </div>
+      </div>
+    </section>
+    <section class="skill-bar">
+      <div class="skill" id="rock">
+        <img src="assets/rock-icon.png" alt="" />
+      </div>
+      <div class="skill" id="paper">
+        <img src="assets/paper-icon.png" alt="" />
+      </div>
+      <div class="skill" id="scissors">
+        <img src="assets/scissors-icon.png" alt="" />
+      </div>
+      <div class="skill" id="dice">
+        <img src="assets/dice-icon.png" alt="" />
+      </div>
+    </section>
+  </body>
+</html>
