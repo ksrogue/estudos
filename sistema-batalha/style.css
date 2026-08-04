@@ -33,13 +33,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
 
 /* resultado */
 .versus {
-    font-family: var(--sec-font);
-    font-weight: bold;
-    font-size: 1.5em;
+  font-family: var(--sec-font);
+  font-weight: bold;
+  font-size: 1.5em;
 }
 .result-container {
   width: 100%;
@@ -66,6 +67,10 @@ body {
       border-radius: 10px;
       box-shadow: 3px 3px 5px var(--shadow);
       overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       & .move-name {
         width: 100%;
         background-color: black;
@@ -77,11 +82,12 @@ body {
         width: 100%;
         height: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        & img {
-          width: 100%;
+        & .p-icon,
+        .e-icon {
+          width: 50%;
+          max-height: 100%;
         }
       }
     }
@@ -107,15 +113,16 @@ body {
 }
 
 /* enemy */
-.enemy-hp-number, .player-hp-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .8em;
-    font-family: var(--sec-font);
-    font-weight: thin;
-    padding-left: 2px;
-    position: absolute;
+.enemy-hp-number,
+.player-hp-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  font-family: var(--sec-font);
+  font-weight: thin;
+  padding-left: 2px;
+  position: absolute;
 }
 .enemy-container,
 .player-container {
@@ -145,16 +152,17 @@ body {
       overflow: hidden;
       & .enemy-progress,
       .player-progress {
-        width: 90%;
+        width: 100%;
         height: 100%;
         background-color: var(--hp-bar);
-        transition: all .3s ease-in;
+        transition: all 0.3s ease-in;
       }
     }
   }
   & .enemy-sprite {
     width: 75px;
     margin-left: 32px;
+    transition: all 0.3s ease-in-out;
     & img {
       width: 100%;
       filter: drop-shadow(3px 3px 5px var(--shadow));
@@ -163,6 +171,7 @@ body {
   & .player-sprite {
     width: 100px;
     margin-right: 16px;
+    transition: all 0.3s ease-in-out;
     & img {
       width: 100%;
       filter: drop-shadow(3px 3px 5px var(--shadow));
@@ -199,11 +208,65 @@ body {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     & img {
-        width: 100%;
-        max-height: 100%; 
+      width: 100%;
+      max-height: 100%;
     }
   }
   & .skill:hover {
     transform: scale(1.05);
   }
+}
+
+.game-over {
+    display: none;
+    width: 320px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px var(--shadow);
+    background-color: var(--skill-bg);
+    color: var(--border);
+    font-size: 2.5em;
+    text-align: center;
+    font-family: var(--main-font);
+    text-shadow: 3px 3px 5px var(--shadow);
+    z-index: 99;
+
+    position: absolute;
+    transition: all .3s ease-in;
+}
+
+.inactive {
+  filter: grayscale(100%);
+  pointer-events: none;
+}
+
+@keyframes enemy-take-hit {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes player-take-hit {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.player-attack {
+  animation: enemy-take-hit 0.5s ease-in-out;
+}
+.enemy-attack {
+  animation: player-take-hit 0.5s ease-in-out;
 }
