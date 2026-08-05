@@ -1,7 +1,8 @@
 const moves = ["rock", "paper", "scissors"];
+
 let isCooldown = false;
 let isGameOver = false;
-const gameEnd = document.querySelector(".game-over");
+const restartBtn = document.querySelector(".restart");
 
 const damage = 33;
 
@@ -21,6 +22,11 @@ const eIcon = document.querySelector(".e-icon");
 const eSprite = document.querySelector(".enemy-sprite");
 
 const result = document.querySelector(".winner-container");
+const soundButton = document.querySelector(".sound-button");
+const sound = document.querySelector(".sound");
+const swordSound = document.querySelector(".sword-slash");
+const soundIcon = document.querySelector(".sound-icon");
+let isMuted = false;
 
 // onclick dos botões;
 const skills = document.querySelectorAll(".skill");
@@ -54,6 +60,7 @@ function battle(player, enemy) {
   } else if (playerWin) {
     // jogador vence;
     eHp = hpRender(damage, eHp, eHpNumber, eHpBar);
+    swordSound.play();
     result.innerText = "PLAYER WIN";
     eSprite.classList.add("player-attack");
   } else {
@@ -62,14 +69,11 @@ function battle(player, enemy) {
     result.innerText = "ENEMY WIN";
     pSprite.classList.add("enemy-attack");
   }
-  result.style.opacity = 1;
 
   isCooldown = true;
   iconState("add");
   if (!isGameOver) {
     setTimeout(onCooldown, 1000);
-  } else {
-    gameEnd.style.display = "block";
   }
 }
 
@@ -85,7 +89,7 @@ function hpRender(damage, hp, hpNumber, hpBar) {
   if (hp <= 0) {
     hp = 0;
     isGameOver = true;
-    gameOver();
+    setTimeout(gameOver, 100);
   }
   hpNumber.textContent = `${hp}/100`;
   hpBar.style.width = `${hp}%`;
@@ -103,7 +107,15 @@ function onCooldown() {
 
 // gameover;
 function gameOver() {
-  gameEnd.style.display = "block";
+  console.log(pHp, eHp);
+  if (eHp <= 0) {
+    eSprite.src = "assets/enemy_down_sprite.png";
+  }
+  if (pHp <= 0) {
+    pSprite.src = "assets/player_down_sprite.png";
+  }
+  restartBtn.style.display = "block";
+  result.innerText = "GAME OVER";
   iconState("add");
 }
 
@@ -115,3 +127,38 @@ function iconState(state) {
     s.disabled = true;
   });
 }
+
+// restart
+restartBtn.addEventListener("click", () => {
+  isGameOver = false;
+  isCooldown = false;
+  iconState("remove");
+
+  pHp = 100;
+  pHpNumber.innerText = `${pHp}/100`;
+  pHpBar.style.width = `${pHp}%`;
+  pSprite.src = "assets/player_sprite.png";
+
+  eHp = 100;
+  eHpNumber.innerText = `${eHp}/100`;
+  eHpBar.style.width = `${eHp}%`;
+  eSprite.src = "assets/enemy_sprite.png";
+
+  restartBtn.style.display = "none";
+  result.innerText = "GAME START";
+});
+
+// mute button;
+soundButton.addEventListener("click", () => {
+  if (!isMuted) {
+    sound.pause();
+    isMuted = true;
+    soundIcon.classList.remove("bi-volume-down-fill");
+    soundIcon.classList.add("bi-volume-mute-fill");
+  } else {
+    sound.play();
+    isMuted = false;
+    soundIcon.classList.remove("bi-volume-mute-fill");
+    soundIcon.classList.add("bi-volume-down-fill");
+  }
+});

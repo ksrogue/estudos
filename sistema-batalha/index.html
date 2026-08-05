@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Batalha</title>
   </head>
@@ -12,62 +17,72 @@
         <div class="player-move">
           <div class="move-name">Hero</div>
           <div class="icon-move">
-            <img src="" alt="" class="p-icon">
+            <img src="" alt="" class="p-icon" />
           </div>
         </div>
         <div class="versus">X</div>
         <div class="enemy-move">
           <div class="move-name">Enemy</div>
           <div class="icon-move">
-            <img src="" alt="" class="e-icon">
+            <img src="" alt="" class="e-icon" />
           </div>
         </div>
       </div>
-      <div class="winner-container"></div>
+      <div class="winner-container">GAME START</div>
     </section>
-    <div class="battlegro">
-        <section class="enemy-container">
-      <div class="hp-container">
-        <div class="enemy-name">enemy</div>
-        <div class="enemy-bar">
-          <div class="enemy-hp-number">100/100</div>
-          <div class="enemy-progress"></div>
+    <div class="battleground">
+      <section class="enemy-container">
+        <div class="hp-container">
+          <div class="enemy-name">enemy</div>
+          <div class="enemy-bar">
+            <div class="enemy-hp-number">100/100</div>
+            <div class="enemy-progress"></div>
+          </div>
         </div>
-      </div>
-      <div class="enemy-sprite">
-        <img src="assets/enemy_sprite.png" alt="imagem do inimigo" />
-      </div>
-    </section>
-    <section class="player-container">
-      <div class="player-sprite">
-        <img src="assets/player_sprite.png" alt="imagem do jogador" />
-      </div>
-      <div class="hp-container">
-        <div class="player-name">player</div>
-        <div class="player-bar">
+        <img
+          src="assets/enemy_sprite.png"
+          alt="imagem do inimigo"
+          class="enemy-sprite"
+        />
+      </section>
+      <section class="player-container">
+        <img
+          src="assets/player_sprite.png"
+          alt="imagem do jogador"
+          class="player-sprite"
+        />
+
+        <div class="hp-container">
+          <div class="player-name">player</div>
+          <div class="player-bar">
             <div class="player-hp-number">100/100</div>
-          <div class="player-progress"></div>
+            <div class="player-progress"></div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="skill-bar">
-      <div class="skill" id="rock">
-        <img src="assets/rock-icon.png" alt="" />
-      </div>
-      <div class="skill" id="paper">
-        <img src="assets/paper-icon.png" alt="" />
-      </div>
-      <div class="skill" id="scissors">
-        <img src="assets/scissors-icon.png" alt="" />
-      </div>
-      <div class="skill" id="dice">
-        <img src="assets/dice-icon.png" alt="" />
-      </div>
-    </section>
+      </section>
+      <section class="skill-bar">
+        <div class="skill" id="rock">
+          <img src="assets/rock-icon.png" alt="" />
+        </div>
+        <div class="skill" id="paper">
+          <img src="assets/paper-icon.png" alt="" />
+        </div>
+        <div class="skill" id="scissors">
+          <img src="assets/scissors-icon.png" alt="" />
+        </div>
+        <div class="skill" id="dice">
+          <img src="assets/dice-icon.png" alt="" />
+        </div>
+        <button class="sound-button">
+          <i class="bi bi-volume-down-fill sound-icon"></i>
+        </button>
+      </section>
     </div>
 
-    <div class="game-over">GAME OVER</div>
-
+    <button class="restart">RESTART</button>
+    <audio src="assets/sounds/sound_bg.mp3" class="sound"></audio>
+    <audio src="assets/sounds/sword_slash.mp3" class="sword-slash"></audio>
     <script src="script.js"></script>
   </body>
 </html>
+>
