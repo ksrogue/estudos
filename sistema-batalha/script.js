@@ -162,3 +162,13 @@ soundButton.addEventListener("click", () => {
     soundIcon.classList.add("bi-volume-down-fill");
   }
 });
+
+
+// TODO
+// melhorar o codigo;
+// adicionar mais inimigos;
+// curar a vida após vencer;
+// adicionar som ao lobo;
+// sons de morte;
+// contador de round;
+// integrar REACT JS ao projeto;
