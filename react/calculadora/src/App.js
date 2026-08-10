@@ -5,13 +5,41 @@ import "./app.css";
 function App() {
   const [currentNumber, setCurrentNumber] = useState("0");
   const [firstNumber, setFirstNumber] = useState("0");
+  const [operator, setOperator] = useState("-");
   const handleAddNumber = (number) => {
-    setCurrentNumber((prev) => `${number}${prev === "0" ? "" : prev}`);
+    setCurrentNumber((prev) => `${prev === "0" ? "" : prev}${number}`);
   };
   const handleClearNumber = () => {
     setCurrentNumber("0");
+    setFirstNumber("0");
   };
-  const handleResult = () => {};
+  const handleOperator = (operator) => {
+    setOperator(operator);
+    setFirstNumber(currentNumber);
+    setCurrentNumber("");
+    console.log(operator);
+  };
+  const handleResult = () => {
+    let result;
+    switch (operator) {
+      case "+":
+        result = Number(firstNumber) + Number(currentNumber);
+        break;
+      case "-":
+        result = Number(firstNumber) - Number(currentNumber);
+        break;
+      case "*":
+        result = Number(firstNumber) * Number(currentNumber);
+        break;
+      case "/":
+        result = Number(firstNumber) / Number(currentNumber);
+        break;
+      default:
+        result = "0";
+        break;
+    }
+    setCurrentNumber(result);
+  };
   return (
     <>
       <div className="calculadora">
@@ -20,10 +48,10 @@ function App() {
         </div>
         <div className="button-container">
           <div className="operator-container">
-            <Button number="/" onClick={() => handleAddNumber("/")} />
-            <Button number="*" onClick={() => handleAddNumber("*")} />
-            <Button number="-" onClick={() => handleAddNumber("-")} />
-            <Button number="+" onClick={() => handleAddNumber("+")} />
+            <Button number="/" onClick={() => handleOperator("/")} />
+            <Button number="*" onClick={() => handleOperator("*")} />
+            <Button number="-" onClick={() => handleOperator("-")} />
+            <Button number="+" onClick={() => handleOperator("+")} />
           </div>
           <div className="number-container">
             <Button number="7" onClick={() => handleAddNumber("7")} />
@@ -38,9 +66,9 @@ function App() {
           </div>
           <div className="enter-container">
             <Button number="0" onClick={() => handleAddNumber("0")} />
-            <Button number="," />
-            <Button number="." />
-            <Button number="Enter" />
+            <Button number="," onClick={() => handleAddNumber(",")}/>
+            <Button number="." onClick={() => handleAddNumber(".")}/>
+            <Button number="=" onClick={handleResult} />
           </div>
           <div className="clear-container">
             <p>KsCalculator</p>
