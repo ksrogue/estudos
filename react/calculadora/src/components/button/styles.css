@@ -1,0 +1,14 @@
+button {
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  min-height: 32px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  font-size: 1.1em;
+}
+button:hover {
+  transform: scale(1.05);
+  background-color: darkgrey;
+}
