@@ -1,0 +1,25 @@
+.action-bar-container {
+    width: 100%;
+}
+.action-bar {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+.skill {
+    width: 50px;
+    height: 50px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px var(--shadow);
+
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.skill:hover {
+    transform: translateY(-3px);
+}

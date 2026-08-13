@@ -1,13 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 :root {
-    --card-bg: #274E96;
-    --card-border: #E2C56B;
-    --text-color: #FFFBEF;
+  --main-font: "Press Start 2P";
+  --sec-font: "Pixelify Sans";
+  --trd-font: "Poppins";
+  --card-bg: #274e96;
+  --card-border: #e2c56b;
+  --text-color: #fffbef;
 
-    --hp-bg: #16411E;
-    --hp-bar: #38C84E;
+  --hp-bg: #16411e;
+  --hp-bar: #38c84e;
 
-    --damage-color: #E74C4C;
-    --heal-color: #5EEA71;
+  --damage-color: #e74c4c;
+  --heal-color: #5eea71;
 
-    --shadow: #00000080;
+  --shadow: #00000080;
 }

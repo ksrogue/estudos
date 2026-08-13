@@ -1,24 +1,41 @@
+
+
 .top-container {
-    width: 320px;
-    padding: 4px;
+  width: 320px;
+  padding: 4px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.stage-container, .round-container, .mute-btn {
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--card-border);
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px var(--shadow);
-    background-color: var(--card-bg);
+.stage-container,
+.round-container,
+.mute-btn {
+  width: 60px;
+  height: 50px;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  background-color: var(--card-bg);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 
-    color: var(--text-color);
-    font-size: .7em;
+  color: var(--text-color);
+  font-size: 0.6em;
+  font-family:var(--main-font);
+  font-weight: normal;
+  text-shadow: 1px 1px 3px var(--shadow);
+}
+.mute-btn {
+  font-size: 2.5em;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  padding-bottom: 5px;
+}
+.mute-btn:hover {
+  color: var(--card-border);
 }
