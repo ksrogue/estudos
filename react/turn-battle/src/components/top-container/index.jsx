@@ -5,7 +5,6 @@ import bgSound from "/src/assets/audio/sound_bg.mp3";
 
 function TopContainer(props) {
   const [isMuted, setIsMuted] = useState(true);
-
   const audioRef = useRef(null);
 
   const toggleAudio = () => {
