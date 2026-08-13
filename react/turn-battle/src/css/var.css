@@ -1,0 +1,13 @@
+:root {
+    --card-bg: #274E96;
+    --card-border: #E2C56B;
+    --text-color: #FFFBEF;
+
+    --hp-bg: #16411E;
+    --hp-bar: #38C84E;
+
+    --damage-color: #E74C4C;
+    --heal-color: #5EEA71;
+
+    --shadow: #00000080;
+}
