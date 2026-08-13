@@ -19,7 +19,15 @@
 
     cursor: pointer;
     transition: all .3s ease-in-out;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .skill:hover {
     transform: translateY(-3px);
+}
+.skill img {
+    max-width: 100%;
+    max-height: 100%;
 }

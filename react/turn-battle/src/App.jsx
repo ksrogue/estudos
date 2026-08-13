@@ -19,3 +19,10 @@ function App() {
 }
 
 export default App;
+
+
+// TODO
+// enemies = wolf, goblin, bandit, orc, dragon;
+// heal after combat;
+// skills interaction;
+
