@@ -4,32 +4,44 @@ import "../../css/var.css";
 const ActionBar = (props) => {
   return (
     <div className="action-bar-container">
-      <ul className="action-bar">
-        <li className="skill" id="rock">
+      <div className="action-bar">
+        <button
+          className={`skill ${props.coolDown}`}
+          onClick={() => props.onClick("rock")}
+        >
           <img
             src="../../src/assets/img/actionbar/rock-icon.png"
             alt="rock icon"
           />
-        </li>
-        <li className="skill" id="paper">
+        </button>
+        <button
+          className={`skill ${props.coolDown}`}
+          onClick={() => props.onClick("paper")}
+        >
           <img
             src="../../src/assets/img/actionbar/paper-icon.png"
             alt="paper icon"
           />
-        </li>
-        <li className="skill" id="scissors">
+        </button>
+        <button
+          className={`skill ${props.coolDown}`}
+          onClick={() => props.onClick("scissors")}
+        >
           <img
             src="../../src/assets/img/actionbar/scissors-icon.png"
             alt="scissors icon"
           />
-        </li>
-        <li className="skill" id="random">
+        </button>
+        <button
+          className={`skill ${props.coolDown}`}
+          onClick={() => props.onClick("dice")}
+        >
           <img
             src="../../src/assets/img/actionbar/dice-icon.png"
             alt="dice icon"
           />
-        </li>
-      </ul>
+        </button>
+      </div>
     </div>
   );
 };

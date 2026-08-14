@@ -1,33 +1,38 @@
 .action-bar-container {
-    width: 100%;
+  width: 100%;
 }
 .action-bar {
-    list-style: none;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 .skill {
-    width: 50px;
-    height: 50px;
-    background-color: var(--card-bg);
-    border: 2px solid var(--card-border);
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px var(--shadow);
+  width: 50px;
+  height: 50px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
 
-    cursor: pointer;
-    transition: all .3s ease-in-out;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .skill:hover {
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 .skill img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cooldown {
+  filter: grayscale(100%);
+  pointer-events: none;
 }
