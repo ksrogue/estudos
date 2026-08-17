@@ -1,0 +1,38 @@
+.profile-container {
+    width: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+}
+
+.image-container {
+    border: 2px solid #adadad;
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+
+    width: 75px;
+    height: 75px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+
+    & img {
+        width: 100%;
+    }
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+h3, span, p {
+    color: #adadad;
+}
+
+p {
+    margin-top: 16px;
+    font-size: .9em;
+    max-width: 350px;
+}

@@ -1,0 +1,42 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #252222;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1, h2 {
+  color: #adadad;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 720px;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #adadad;
+  margin-top: 16px;
+}
+
+.repo-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
