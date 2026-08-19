@@ -3,7 +3,7 @@ import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import bgSound from "/src/assets/audio/sound_bg.mp3";
 
-function TopContainer(props) {
+function TopContainer({stage, round}) {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef(null);
 
@@ -32,11 +32,11 @@ function TopContainer(props) {
     <div className="top-container">
       <div className="stage-container">
         STAGE
-        <span>{props.stage}/5</span>
+        <span>{stage || "1"}/5</span>
       </div>
       <div className="round-container">
         ROUND
-        <span>{props.round}</span>
+        <span>{round || "1"}</span>
       </div>
       <button className="mute-btn" onClick={toggleAudio}>
         <i className={audioIcon}></i>

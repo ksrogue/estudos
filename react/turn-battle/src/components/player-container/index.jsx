@@ -14,9 +14,9 @@ const PlayerContainer = (props) => {
           className={`player-sprite ${props.anim}`}
         />
         <div className="player-info-container">
-          <span className="player-name">{props.name}</span>
+          <span className="player-name">{props.name || "player"}</span>
           <div className="player-hp-bar">
-            <span className="player-hp-number">{`${props.pHp}/${props.pMhp}`}</span>
+            <span className="player-hp-number">{`${props.pHp || "0"}/${props.pMhp || "0"}`}</span>
             <div
               className="player-hp-progress"
               style={{ width: `${hpPercentage}%` }}
