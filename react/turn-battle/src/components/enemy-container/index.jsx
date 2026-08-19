@@ -8,9 +8,9 @@ const EnemyContainer = (props) => {
   return (
     <div className="enemy-container">
       <div className="info-container">
-        <span className="enemy-name">{props.name}</span>
+        <span className="enemy-name">{props.name || "enemy"}</span>
         <div className="enemy-hp-bar">
-          <span className="enemy-hp-number">{`${props.eHp}/${props.eMhp}`}</span>
+          <span className="enemy-hp-number">{`${props.eHp || "0"}/${props.eMhp || "0"}`}</span>
           <div
             className="enemy-hp-progress"
             style={{ width: `${hpPercentage}%` }}
