@@ -6,12 +6,12 @@ import Repo from "./components/repo";
 function App() {
   const [user, setUser] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
-  const [repos, setRepos] = useState("");
+  const [repos, setRepos] = useState([]);
 
   const handleGetData = async () => {
     const userData = await fetch(`https://api.github.com/users/${user}`);
     const newUser = await userData.json();
-    if (newUser.name) {
+    if (newUser.login) {
       const { avatar_url, login, name, bio } = newUser;
       setCurrentUser({ avatar_url, login, name, bio });
 
