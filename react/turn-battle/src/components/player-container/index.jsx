@@ -3,20 +3,20 @@ import "../../css/var.css";
 
 import playerSprite from "../../assets/img/player_sprite.png";
 
-const PlayerContainer = (props) => {
-  const hpPercentage = (props.pHp / props.pMhp) * 100;
+const PlayerContainer = ({pHp, pMhp, name, anim}) => {
+  const hpPercentage = (pHp / pMhp) * 100;
   return (
     <div>
       <div className="player-container">
         <img
           src={playerSprite}
           alt="player sprite"
-          className={`player-sprite ${props.anim}`}
+          className={`player-sprite ${anim}`}
         />
         <div className="player-info-container">
-          <span className="player-name">{props.name || "player"}</span>
+          <span className="player-name">{name || "player"}</span>
           <div className="player-hp-bar">
-            <span className="player-hp-number">{`${props.pHp || "0"}/${props.pMhp || "0"}`}</span>
+            <span className="player-hp-number">{`${pHp || "0"}/${pMhp || "0"}`}</span>
             <div
               className="player-hp-progress"
               style={{ width: `${hpPercentage}%` }}

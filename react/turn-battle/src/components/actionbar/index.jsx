@@ -1,13 +1,13 @@
-import "./styles.css";
+import "./actionbar.css";
 import "../../css/var.css";
 
-const ActionBar = (props) => {
+const ActionBar = ({onClick, coolDown}) => {
   return (
     <div className="action-bar-container">
       <div className="action-bar">
         <button
-          className={`skill ${props.coolDown}`}
-          onClick={() => props.onClick("rock")}
+          className={`skill ${coolDown}`}
+          onClick={() => onClick("rock")}
         >
           <img
             src="../../src/assets/img/actionbar/rock-icon.png"
@@ -15,8 +15,8 @@ const ActionBar = (props) => {
           />
         </button>
         <button
-          className={`skill ${props.coolDown}`}
-          onClick={() => props.onClick("paper")}
+          className={`skill ${coolDown}`}
+          onClick={() => onClick("paper")}
         >
           <img
             src="../../src/assets/img/actionbar/paper-icon.png"
@@ -24,8 +24,8 @@ const ActionBar = (props) => {
           />
         </button>
         <button
-          className={`skill ${props.coolDown}`}
-          onClick={() => props.onClick("scissors")}
+          className={`skill ${coolDown}`}
+          onClick={() => onClick("scissors")}
         >
           <img
             src="../../src/assets/img/actionbar/scissors-icon.png"
@@ -33,8 +33,8 @@ const ActionBar = (props) => {
           />
         </button>
         <button
-          className={`skill ${props.coolDown}`}
-          onClick={() => props.onClick("dice")}
+          className={`skill ${coolDown}`}
+          onClick={() => onClick("dice")}
         >
           <img
             src="../../src/assets/img/actionbar/dice-icon.png"

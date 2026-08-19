@@ -1,4 +1,9 @@
-
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 
 .top-container {
   width: 320px;
@@ -38,4 +43,58 @@
 }
 .mute-btn:hover {
   color: var(--card-border);
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.player-move, .enemy-move {
+  border: 2px solid var(--card-border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  background-color: var(--card-bg);
+  width: 50px;
+  height: 60px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.player-move span, .enemy-move span {
+  text-align: center;
+  font-size: .7em;
+  width: 100%;
+  background-color: black;
+  color: var(--text-color);
+  padding: 2px;
+}
+.img-container {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-container img {
+  width: 100%;
+}
+
+.result {
+  width: 120px;
+  height: 30px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px var(--shadow);
+  text-align: center;
+  padding: 8px;
+  font-family: var(--main-font);
+  color: var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
