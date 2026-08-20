@@ -1,19 +1,23 @@
 .battle {
-    width: 100vw;
-    max-width: 500px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
+  width: 100vw;
+  max-width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
 }
 
 .battleground {
-    padding: 8px;
-    width: 90%;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  padding: 8px;
+  width: 90%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.game-over {
+  filter: grayscale(100%);
 }

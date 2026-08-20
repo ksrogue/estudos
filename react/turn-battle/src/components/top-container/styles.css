@@ -35,15 +35,19 @@
   font-weight: normal;
   text-shadow: 1px 1px 3px var(--shadow);
 }
-.mute-btn {
+.mute-btn{
   font-size: 2.5em;
   cursor: pointer;
   transition: all 0.3s ease-in;
   padding-bottom: 5px;
 }
+.refresh-btn {
+  font-size: 2em;
+}
 .mute-btn:hover {
   color: var(--card-border);
 }
+
 
 .status-container {
   display: flex;
@@ -79,12 +83,13 @@
   justify-content: center;
 }
 .img-container img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .result {
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 50px;
   background-color: var(--card-bg);
   border: 2px solid var(--card-border);
   border-radius: 5px;

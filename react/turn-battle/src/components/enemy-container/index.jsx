@@ -1,9 +1,7 @@
 import "./styles.css";
 import "../../css/var.css";
 
-import enemySprite from "../../assets/img/enemy_sprite.png";
-
-const EnemyContainer = ({eHp, eMhp, name, anim}) => {
+const EnemyContainer = ({eHp, eMhp, name, anim, sprite}) => {
   const hpPercentage = (eHp / eMhp) * 100;
   return (
     <div className="enemy-container">
@@ -17,7 +15,7 @@ const EnemyContainer = ({eHp, eMhp, name, anim}) => {
           ></div>
         </div>
       </div>
-      <img src={enemySprite} alt="enemy sprite" className={`enemy-sprite ${anim}`} />
+      <img src={sprite} alt="enemy sprite" className={`enemy-sprite ${anim}`} />
     </div>
   );
 };

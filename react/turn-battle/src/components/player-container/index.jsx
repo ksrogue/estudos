@@ -1,15 +1,13 @@
 import "./styles.css";
 import "../../css/var.css";
 
-import playerSprite from "../../assets/img/player_sprite.png";
-
-const PlayerContainer = ({pHp, pMhp, name, anim}) => {
+const PlayerContainer = ({pHp, pMhp, name, anim, sprite, className}) => {
   const hpPercentage = (pHp / pMhp) * 100;
   return (
     <div>
-      <div className="player-container">
+      <div className={`player-container ${className}`}>
         <img
-          src={playerSprite}
+          src={sprite}
           alt="player sprite"
           className={`player-sprite ${anim}`}
         />
