@@ -38,7 +38,7 @@ function TopContainer({ stage, round, pIcon, eIcon, result }) {
 
   const audioIcon = isMuted
     ? "bi bi-volume-down-fill"
-    : "bi bi-volume-muted-fill";
+    : "bi bi-volume-mute-fill";
 
   return (
     <div className="container">
