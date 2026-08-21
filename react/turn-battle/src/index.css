@@ -5,15 +5,18 @@
   user-select: none;
 }
 
-body {
+html, body {
   width: 100%;
-  min-height: 100vh;
+  height: 100dvh;
+  
   display: flex;
   justify-content: center;
 
-  background-image: url(assets/img/battleback.png);
+  background-image: url("./assets/img/battleback.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 
+  overflow: hidden;
 }

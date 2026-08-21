@@ -1,0 +1,21 @@
+button {
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    background-color: var(--card-border);
+    color: var(--text-color);
+    box-shadow: 3px 3px 5px var(--shadow);
+
+    width: 60px;
+    font-size: 2em;
+    padding: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+button:hover {
+    transform: translateY(-3px);
+}

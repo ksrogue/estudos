@@ -37,7 +37,7 @@
 }
 
 .enemy-sprite {
-  max-width: 50px;
+  max-width: 90px;
   filter: drop-shadow(3px 3px 5px var(--shadow));
 }
 

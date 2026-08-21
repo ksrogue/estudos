@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "./app.css";
+// components
 import TopContainer from "./components/top-container";
 import EnemyContainer from "./components/enemy-container";
 import PlayerContainer from "./components/player-container";
 import ActionBar from "./components/actionbar";
+import Restart from "./components/restart-button";
+// audio
 import pAudio from "/src/assets/audio/sword_slash.mp3";
 import eAudio from "/src/assets/audio/player_hurt.mp3";
 import dAudio from "/src/assets/audio/card_swipe.mp3";
@@ -12,21 +15,51 @@ import playerSprite from "/src/assets/img/player_sprite.png";
 import playerDownSprite from "/src/assets/img/player_down_sprite.png";
 import wolfSprite from "/src/assets/img/wolf_sprite.png";
 import goblinSprite from "/src/assets/img/goblin_sprite.png";
+import banditSprite from "/src/assets/img/bandit_sprite.png";
+import orcSprite from "/src/assets/img/orc_sprite.png";
+import dragonSprite from "/src/assets/img/dragon_sprite.png";
 
 function App() {
+  const enemies = [
+    {
+      name: "wolf",
+      hp: 100,
+      maxHp: 100,
+      sprite: wolfSprite,
+    },
+    {
+      name: "goblin",
+      hp: 100,
+      maxHp: 100,
+      sprite: goblinSprite,
+    },
+    {
+      name: "thief",
+      hp: 100,
+      maxHp: 100,
+      sprite: banditSprite,
+    },
+    {
+      name: "orc",
+      hp: 100,
+      maxHp: 100,
+      sprite: orcSprite,
+    },
+    {
+      name: "dragon",
+      hp: 100,
+      maxHp: 100,
+      sprite: dragonSprite,
+    },
+  ];
+  const [currentEnemy, setCurrentEnemy] = useState(0);
   const moves = ["rock", "paper", "scissors"];
   const damage = 33;
   const [player, setPlayer] = useState({
     name: "player",
-    hp: 100,
-    maxHp: 100,
+    hp: 1000,
+    maxHp: 1000,
     sprite: playerSprite,
-  });
-  const [enemy, setEnemy] = useState({
-    name: "wolf",
-    hp: 100,
-    maxHp: 100,
-    sprite: wolfSprite,
   });
 
   // audio
@@ -41,11 +74,16 @@ function App() {
   const [gameOver, setGameOver] = useState("");
   const [stage, setStage] = useState(1);
   const [round, setRound] = useState(1);
+  const [totalRound, setTotalRound] = useState(1);
   const [result, setResult] = useState("result");
   const [pIcon, setPicon] = useState("dice");
   const [eIcon, setEicon] = useState("dice");
   const [pAnim, setPanim] = useState("");
   const [eAnim, setEanim] = useState("");
+  const [hidden, setHidden] = useState("");
+  const [show, setShow] = useState("")
+
+  const [enemy, setEnemy] = useState(enemies[0]);
 
   useEffect(() => {
     if (enemyAudio.current) {
@@ -104,6 +142,7 @@ function App() {
       playerAudio.current.play();
     }
     setRound((prev) => prev + 1);
+    setTotalRound((prev) => prev + 1);
     setResult(res);
     setPicon(pIcon);
     setEicon(eIcon);
@@ -125,24 +164,29 @@ function App() {
   }, [isCooldown, isGameOver]);
 
   const nextRound = () => {
+    const nextEnemy = currentEnemy + 1;
     setStage((prev) => prev + 1);
 
-    setEnemy({
-      name: "Goblin",
-      hp: 100,
-      maxHp: 100,
-      sprite: goblinSprite,
-    });
-    setPlayer((prev) => ({
-      ...prev,
-      hp: 100,
-    }));
+    if (stage < 5) {
+      setCurrentEnemy(nextEnemy);
 
-    setPicon("dice");
-    setEicon("dice");
-    setResult("Next Enemy");
-    setRound(1);
+      setEnemy({ ...enemies[nextEnemy] });
+
+      setPlayer((prev) => ({
+        ...prev,
+        hp: prev.maxHp,
+      }));
+
+      setPicon("dice");
+      setEicon("dice");
+      setResult("Next Enemy");
+      setRound(1);
+    } else {
+      // fim do jogo;
+      setTimeout(endGame, 1500);
+    }
   };
+
   const callGameOver = () => {
     setResult("GameOver");
     setIsGameOver(true);
@@ -152,38 +196,57 @@ function App() {
       ...prev,
       sprite: playerDownSprite,
     }));
+    setTimeout(handleRefresh, 1000);
   };
+
+  const endGame = () => {
+    setHidden("hidden");
+    setShow("show")
+  };
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
   return (
-    <div className="battle">
-      <TopContainer
-        stage={stage}
-        round={round}
-        result={result}
-        pIcon={pIcon}
-        eIcon={eIcon}
-      />
-      <div className="battleground">
-        <EnemyContainer
-          name={enemy.name}
-          eHp={enemy.hp}
-          eMhp={enemy.maxHp}
-          anim={eAnim}
-          sprite={enemy.sprite}
-        />
-        <PlayerContainer
-          name={player.name}
-          pHp={player.hp}
-          pMhp={player.maxHp}
-          anim={pAnim}
-          sprite={player.sprite}
-          className={gameOver}
-        />
-        <ActionBar onClick={handleMoves} coolDown={cooldown} />
+    <>
+      <div className={`end-game-container ${show}`}>
+        <p>You Won All Battles!</p>
+        <span>total rounds:{totalRound}</span>
+        <Restart refresh={handleRefresh} />
       </div>
-      <audio ref={playerAudio} src={pAudio}></audio>
-      <audio ref={enemyAudio} src={eAudio}></audio>
-      <audio ref={drawAudio} src={dAudio}></audio>
-    </div>
+
+      <div className={`battle ${hidden}`}>
+        <TopContainer
+          stage={stage}
+          round={round}
+          result={result}
+          pIcon={pIcon}
+          eIcon={eIcon}
+        />
+        <div className="battleground">
+          <EnemyContainer
+            name={enemy.name}
+            eHp={enemy.hp}
+            eMhp={enemy.maxHp}
+            anim={eAnim}
+            sprite={enemy.sprite}
+          />
+          <PlayerContainer
+            name={player.name}
+            pHp={player.hp}
+            pMhp={player.maxHp}
+            anim={pAnim}
+            sprite={player.sprite}
+            className={gameOver}
+          />
+          <ActionBar onClick={handleMoves} coolDown={cooldown} />
+        </div>
+        <audio ref={playerAudio} src={pAudio}></audio>
+        <audio ref={enemyAudio} src={eAudio}></audio>
+        <audio ref={drawAudio} src={dAudio}></audio>
+      </div>
+    </>
   );
 }
 
