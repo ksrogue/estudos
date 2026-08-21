@@ -57,8 +57,8 @@ function App() {
   const damage = 33;
   const [player, setPlayer] = useState({
     name: "player",
-    hp: 1000,
-    maxHp: 1000,
+    hp: 100,
+    maxHp: 100,
     sprite: playerSprite,
   });
 
@@ -81,7 +81,8 @@ function App() {
   const [pAnim, setPanim] = useState("");
   const [eAnim, setEanim] = useState("");
   const [hidden, setHidden] = useState("");
-  const [show, setShow] = useState("")
+  const [show, setShow] = useState("");
+  const [endText, setEndText] = useState("");
 
   const [enemy, setEnemy] = useState(enemies[0]);
 
@@ -102,7 +103,9 @@ function App() {
         (playerMove === "rock" && enemyMove === "scissors") ||
         (playerMove === "scissors" && enemyMove === "paper") ||
         (playerMove === "paper" && enemyMove === "rock");
-      drawAudio.current.play();
+      drawAudio.current.play().catch((err) => {
+          console.warn("audio autoplay blocked from browser:", err);
+        });
       if (playerMove === enemyMove) {
         // empate;
         uiRender("", "DRAW!", playerMove, enemyMove);
@@ -114,13 +117,13 @@ function App() {
         uiRender("player", "LOSE!", playerMove, enemyMove);
       }
       setIsCooldown(true);
-    }
-    if (!isGameOver) {
-      setTimeout(() => {
-        setIsCooldown(false);
-        setEanim("");
-        setPanim("");
-      }, 1500);
+      if (!isGameOver) {
+        setTimeout(() => {
+          setIsCooldown(false);
+          setEanim("");
+          setPanim("");
+        }, 1500);
+      }
     }
   };
 
@@ -132,14 +135,18 @@ function App() {
         hp: Math.max(0, prev.hp - damage),
       }));
       setPanim("player-hit");
-      enemyAudio.current.play();
+      enemyAudio.current.play().catch((err) => {
+          console.warn("audio autoplay blocked from browser:", err);
+        });
     } else if (target === "enemy") {
       setEnemy((prev) => ({
         ...prev,
         hp: Math.max(0, prev.hp - damage),
       }));
       setEanim("enemy-hit");
-      playerAudio.current.play();
+      playerAudio.current.play().catch((err) => {
+          console.warn("audio autoplay blocked from browser:", err);
+        });
     }
     setRound((prev) => prev + 1);
     setTotalRound((prev) => prev + 1);
@@ -188,20 +195,22 @@ function App() {
   };
 
   const callGameOver = () => {
+    const lose = true;
     setResult("GameOver");
     setIsGameOver(true);
     setGameOver("game-over");
     setCooldown("cooldown");
+    setEndText(lose ? "You Were Defeated!" : "You Won All Battles!");
     setPlayer((prev) => ({
       ...prev,
       sprite: playerDownSprite,
     }));
-    setTimeout(handleRefresh, 1000);
+    setTimeout(endGame, 1000);
   };
 
   const endGame = () => {
     setHidden("hidden");
-    setShow("show")
+    setShow("show");
   };
 
   const handleRefresh = () => {
@@ -211,7 +220,7 @@ function App() {
   return (
     <>
       <div className={`end-game-container ${show}`}>
-        <p>You Won All Battles!</p>
+        <p>{endText}</p>
         <span>total rounds:{totalRound}</span>
         <Restart refresh={handleRefresh} />
       </div>

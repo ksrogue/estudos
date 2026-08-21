@@ -1,6 +1,11 @@
 import "./actionbar.css";
 import "../../css/var.css";
 
+import rockIcon from "/src/assets/img/actionbar/rock-icon.png";
+import paperIcon from "/src/assets/img/actionbar/paper-icon.png";
+import scissorsIcon from "/src/assets/img/actionbar/scissors-icon.png";
+import diceIcon from "/src/assets/img/actionbar/dice-icon.png";
+
 const ActionBar = ({onClick, coolDown}) => {
   return (
     <div className="action-bar-container">
@@ -10,7 +15,7 @@ const ActionBar = ({onClick, coolDown}) => {
           onClick={() => onClick("rock")}
         >
           <img
-            src="../../src/assets/img/actionbar/rock-icon.png"
+            src={rockIcon}
             alt="rock icon"
           />
         </button>
@@ -19,7 +24,7 @@ const ActionBar = ({onClick, coolDown}) => {
           onClick={() => onClick("paper")}
         >
           <img
-            src="../../src/assets/img/actionbar/paper-icon.png"
+            src={paperIcon}
             alt="paper icon"
           />
         </button>
@@ -28,7 +33,7 @@ const ActionBar = ({onClick, coolDown}) => {
           onClick={() => onClick("scissors")}
         >
           <img
-            src="../../src/assets/img/actionbar/scissors-icon.png"
+            src={scissorsIcon}
             alt="scissors icon"
           />
         </button>
@@ -37,7 +42,7 @@ const ActionBar = ({onClick, coolDown}) => {
           onClick={() => onClick("dice")}
         >
           <img
-            src="../../src/assets/img/actionbar/dice-icon.png"
+            src={diceIcon}
             alt="dice icon"
           />
         </button>

@@ -2,11 +2,23 @@ import "/src/css/var.css";
 import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import bgSound from "/src/assets/audio/sound_bg.mp3";
+import rockIcon from "/src/assets/img/actionbar/rock-icon.png";
+import paperIcon from "/src/assets/img/actionbar/paper-icon.png";
+import scissorsIcon from "/src/assets/img/actionbar/scissors-icon.png";
+import diceIcon from "/src/assets/img/actionbar/dice-icon.png";
+
+const ICON_MAP = {
+  dice: diceIcon,
+  rock: rockIcon,
+  paper: paperIcon,
+  scissors: scissorsIcon,
+};
 
 function TopContainer({ stage, round, pIcon, eIcon, result }) {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef(null);
-
+  const playerIcon = ICON_MAP[pIcon] || ICON_MAP.dice;
+  const enemyIcon = ICON_MAP[eIcon] || ICON_MAP.dice;
   const toggleAudio = () => {
     setIsMuted((prevMuted) => !prevMuted);
   };
@@ -49,20 +61,14 @@ function TopContainer({ stage, round, pIcon, eIcon, result }) {
         <div className="player-move">
           <span>YOU</span>
           <div className="img-container">
-            <img
-              src={`../../src/assets/img/actionbar/${pIcon || "dice"}-icon.png`}
-              alt="player move icon"
-            />
+            <img src={playerIcon} alt="player move icon" />
           </div>
         </div>
         <div className="result">{result || "RESULT"}</div>
         <div className="enemy-move">
           <span>ENEMY</span>
           <div className="img-container">
-            <img
-              src={`../../src/assets/img/actionbar/${eIcon || "dice"}-icon.png`}
-              alt="enemy move icon"
-            />
+            <img src={enemyIcon} alt="enemy move icon" />
           </div>
         </div>
       </div>
