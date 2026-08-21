@@ -48,9 +48,3 @@
 .show {
   display: flex;
 }
-
-@media screen and (min-width> 700px) {
-  .battle {
-    max-width: 700px;
-  }
-}
