@@ -23,26 +23,26 @@ function App() {
   const enemies = [
     {
       name: "wolf",
-      hp: 100,
-      maxHp: 100,
+      hp: 99,
+      maxHp: 99,
       sprite: wolfSprite,
     },
     {
       name: "goblin",
-      hp: 100,
-      maxHp: 100,
+      hp: 99,
+      maxHp: 99,
       sprite: goblinSprite,
     },
     {
       name: "thief",
-      hp: 100,
-      maxHp: 100,
+      hp: 99,
+      maxHp: 99,
       sprite: banditSprite,
     },
     {
       name: "orc",
-      hp: 100,
-      maxHp: 100,
+      hp: 99,
+      maxHp: 99,
       sprite: orcSprite,
     },
     {
@@ -57,8 +57,8 @@ function App() {
   const damage = 33;
   const [player, setPlayer] = useState({
     name: "player",
-    hp: 100,
-    maxHp: 100,
+    hp: 990,
+    maxHp: 999,
     sprite: playerSprite,
   });
 
@@ -86,6 +86,8 @@ function App() {
 
   const [enemy, setEnemy] = useState(enemies[0]);
 
+  let lose = false;
+
   useEffect(() => {
     if (enemyAudio.current) {
       enemyAudio.current.volume = 0.3;
@@ -104,8 +106,8 @@ function App() {
         (playerMove === "scissors" && enemyMove === "paper") ||
         (playerMove === "paper" && enemyMove === "rock");
       drawAudio.current.play().catch((err) => {
-          console.warn("audio autoplay blocked from browser:", err);
-        });
+        console.warn("audio autoplay blocked from browser:", err);
+      });
       if (playerMove === enemyMove) {
         // empate;
         uiRender("", "DRAW!", playerMove, enemyMove);
@@ -136,8 +138,8 @@ function App() {
       }));
       setPanim("player-hit");
       enemyAudio.current.play().catch((err) => {
-          console.warn("audio autoplay blocked from browser:", err);
-        });
+        console.warn("audio autoplay blocked from browser:", err);
+      });
     } else if (target === "enemy") {
       setEnemy((prev) => ({
         ...prev,
@@ -145,8 +147,8 @@ function App() {
       }));
       setEanim("enemy-hit");
       playerAudio.current.play().catch((err) => {
-          console.warn("audio autoplay blocked from browser:", err);
-        });
+        console.warn("audio autoplay blocked from browser:", err);
+      });
     }
     setRound((prev) => prev + 1);
     setTotalRound((prev) => prev + 1);
@@ -195,12 +197,12 @@ function App() {
   };
 
   const callGameOver = () => {
-    const lose = true;
+    lose = true;
     setResult("GameOver");
     setIsGameOver(true);
     setGameOver("game-over");
     setCooldown("cooldown");
-    setEndText(lose ? "You Were Defeated!" : "You Won All Battles!");
+
     setPlayer((prev) => ({
       ...prev,
       sprite: playerDownSprite,
@@ -209,12 +211,37 @@ function App() {
   };
 
   const endGame = () => {
+    setEndText(lose ? "You Were Defeated!" : "You Won All Battles!");
     setHidden("hidden");
     setShow("show");
   };
 
   const handleRefresh = () => {
-    window.location.reload();
+    // window.location.reload();
+    setCurrentEnemy(0);
+    setEnemy({ ...enemies[0] });
+    setPlayer({
+      name: "player",
+      hp: 99,
+      maxHp: 99,
+      sprite: playerSprite,
+    });
+
+    setStage(1);
+    setRound(1);
+    setTotalRound(1);
+    setResult("result");
+    setPicon("dice");
+    setEicon("dice");
+
+    setIsCooldown(false);
+    setIsGameOver(false);
+    setGameOver("");
+    setPanim("");
+    setEanim("");
+    setHidden("");
+    setShow("");
+    setEndText("");
   };
 
   return (
