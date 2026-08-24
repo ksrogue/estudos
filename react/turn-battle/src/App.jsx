@@ -57,8 +57,8 @@ function App() {
   const damage = 33;
   const [player, setPlayer] = useState({
     name: "player",
-    hp: 990,
-    maxHp: 999,
+    hp: 99,
+    maxHp: 99,
     sprite: playerSprite,
   });
 
