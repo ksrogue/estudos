@@ -83,6 +83,7 @@ function App() {
   const [hidden, setHidden] = useState("");
   const [show, setShow] = useState("");
   const [endText, setEndText] = useState("");
+  const [hiddenDamage, setHiddenDamage] = useState("hidden-damage");
 
   const [enemy, setEnemy] = useState(enemies[0]);
 
@@ -124,6 +125,7 @@ function App() {
           setIsCooldown(false);
           setEanim("");
           setPanim("");
+          setHiddenDamage("hidden-damage");
         }, 1500);
       }
     }
@@ -136,6 +138,7 @@ function App() {
         ...prev,
         hp: Math.max(0, prev.hp - damage),
       }));
+      setHiddenDamage("");
       setPanim("player-hit");
       enemyAudio.current.play().catch((err) => {
         console.warn("audio autoplay blocked from browser:", err);
@@ -242,6 +245,7 @@ function App() {
     setHidden("");
     setShow("");
     setEndText("");
+    setHiddenDamage("hidden-damage");
   };
 
   return (
@@ -275,6 +279,7 @@ function App() {
             anim={pAnim}
             sprite={player.sprite}
             className={gameOver}
+            hiddenDamage={hiddenDamage}
           />
           <ActionBar onClick={handleMoves} coolDown={cooldown} />
         </div>

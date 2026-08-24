@@ -1,7 +1,7 @@
 import "./styles.css";
 import "../../css/var.css";
 
-const PlayerContainer = ({pHp, pMhp, name, anim, sprite, className}) => {
+const PlayerContainer = ({pHp, pMhp, name, anim, sprite, className, hiddenDamage}) => {
   const hpPercentage = (pHp / pMhp) * 100;
   return (
     <div>
@@ -11,6 +11,7 @@ const PlayerContainer = ({pHp, pMhp, name, anim, sprite, className}) => {
           alt="player sprite"
           className={`player-sprite ${anim}`}
         />
+        <span className={`damage-counter ${hiddenDamage}`}>-33</span>
         <div className="player-info-container">
           <span className="player-name">{name || "player"}</span>
           <div className="player-hp-bar">

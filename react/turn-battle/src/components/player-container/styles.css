@@ -60,3 +60,31 @@
     filter: saturate(0);
   }
 }
+
+.damage-counter {
+  color: red;
+  font-family: var(--sec-font);
+  text-shadow: 3px 3px 5px var(--shadow);
+  position: fixed;
+  top: 60%;
+  opacity: 0;
+  animation: show-damage 0.8s;
+}
+
+.hidden-damage {
+  display: none;
+}
+
+@keyframes show-damage {
+  0% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(-20px);
+  }
+}
