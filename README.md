@@ -6,7 +6,7 @@ Repositório com os projetos que farei para aprender e melhorar minhas habilidad
 
 ## 📌 Projetos no Repositório
 
-### ⚔️ 1. <a href="battle-ksr.vercel.app">Sistema de Batalha React (`/react/turn-battle`)</a>
+### ⚔️ 1. <a href="battle-ksr.vercel.app">Sistema de Batalha | React</a>
 Um jogo de batalha RPG por turnos no estilo *Pedra, Papel e Tesoura*, desenvolvido com React e CSS animado.
 
 * **Destaques & Aprendizados:**
