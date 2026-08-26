@@ -98,6 +98,7 @@ function App() {
   const randomMove = () => {
     return moves[Math.floor(Math.random() * moves.length)];
   };
+  
   const handleMoves = (pMove) => {
     if (!isCooldown && !isGameOver) {
       const enemyMove = randomMove();

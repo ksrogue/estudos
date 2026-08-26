@@ -49,15 +49,13 @@
 @keyframes attack-player {
   0% {
     transform: translateY(0);
-    filter: saturate(0);
   }
   50% {
     transform: translateY(10px);
-    filter: saturate(100);
+    filter: sepia(100%) saturate(1000%) hue-rotate(315deg) brightness(0.9);
   }
   100% {
     transform: translateY(0);
-    filter: saturate(0);
   }
 }
 
