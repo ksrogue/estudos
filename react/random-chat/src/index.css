@@ -1,0 +1,29 @@
+:root {
+  --main-font: "Times New Roman", Times, serif;
+  --main-bg: #141f33;
+  --border: #99acb1;
+  --text: #99acb1;
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+
+  background-image: url("./assets/images/v_bg.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 720px) {
+  body {
+    background-image: url("./assets/images/h_bg.jpg");
+  }
+}

@@ -1,0 +1,20 @@
+.sprite-container {
+  width: 150px;
+}
+.sprite-container img {
+  width: 90%;
+  filter: drop-shadow(3px 3px 5px rgba(100, 150, 190, 0.4));
+
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+.sprite-container img:hover {
+  filter: saturate(100%);
+  transform: scale(1.01);
+}
+
+@media (min-width: 720px) {
+  .sprite-container {
+    width: 175px;
+  }
+}
