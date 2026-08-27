@@ -4,38 +4,19 @@ import WizardSprite from "./components/wizardSprite";
 import ChatContainer from "./components/chatContainer";
 
 function App() {
-  const [lang, setLang] = useState("br");
-  const [displayedAdvice, setDisplayedAdvice] = useState(
-    lang === "br"
-      ? "Clique no Mago para um conselho!"
-      : "Click on the Wizard for an advice!",
-  );
-  const [advice, setAdvice] = useState("");
-  const [wizardName, setWizardName] = useState(
-    lang === "br" ? "Mago" : "Wizard",
-  );
-
-  const langHandler = () => {
-    lang === "br" ? setLang("us") : setLang("br");
-  };
+  const [canClick, setCanClick] = useState(true);
+  const [displayedAdvice, setDisplayedAdvice] = useState("");
+  const [advice, setAdvice] = useState("Click on the Wizard for an advice!");
 
   const getNewAdvice = async () => {
     try {
-      const enResponse = await fetch("https://api.adviceslip.com/advice");
-      if (!enResponse.ok) {
-        throw new Error(`Erro na requisição: ${enResponse.status}`);
+      const response = await fetch("https://api.adviceslip.com/advice");
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
       }
-      const enData = await enResponse.json();
-      const enAdvice = enData.slip.advice;
-      if (lang === "br") {
-        const ptResponse = await fetch(
-          `https://api.mymemory.translated.net/get?q=${enAdvice}&langpair=en|pt`,
-        );
-        const ptData = await ptResponse.json();
-        const ptAdvice = ptData.responseData.translatedText;
-
-        return ptAdvice || enAdvice;
-      } else return enAdvice;
+      const data = await response.json();
+      const advice = data.slip.advice;
+      return advice;
     } catch (err) {
       console.error("Houve um problema: " + err);
     }
@@ -59,17 +40,21 @@ function App() {
   }, [advice]);
 
   const adviceHandler = async () => {
-    const adviceText = await getNewAdvice();
-    setAdvice(adviceText);
+    if (canClick) {
+      const adviceText = await getNewAdvice();
+      setAdvice(adviceText);
+      setCanClick(false);
+    } else {
+      setTimeout(() => {
+        setCanClick(true);
+      }, 1000);
+    }
   };
   return (
     <div className="app-container">
-      <div className="lang-container">
-        <span className={`fi fi-${lang}`} onClick={langHandler}></span>
-      </div>
       <div className="container">
         <WizardSprite onclick={adviceHandler} />
-        <ChatContainer name={wizardName} advice={displayedAdvice} />
+        <ChatContainer name="Wizard" advice={displayedAdvice} />
       </div>
     </div>
   );
