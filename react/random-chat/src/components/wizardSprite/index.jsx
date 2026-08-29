@@ -1,10 +1,10 @@
 import "./wizard.css";
 import wizardSprite from "/src/assets/images/wizard_sprite.png";
 
-const WizardSprite = ({onclick}) => {
+const WizardSprite = ({onClick}) => {
   return (
     <div className="sprite-container">
-      <img src={wizardSprite} alt="wizard sprite" onClick={onclick} />
+      <img src={wizardSprite} alt="wizard sprite" onClick={onClick} />
     </div>
   );
 };
