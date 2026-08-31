@@ -3,6 +3,7 @@
   flex-direction: column;
 
   width: 90%;
+  height: 150px;
 
   font-family: var(--main-font);
   font-weight: bold;

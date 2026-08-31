@@ -1,5 +1,5 @@
 .sprite-container {
-  width: 150px;
+  width: 275px;
 }
 .sprite-container img {
   width: 90%;
@@ -13,8 +13,7 @@
   transform: scale(1.01);
 }
 
-@media (min-width: 720px) {
-  .sprite-container {
-    width: 175px;
-  }
+
+.conjuring {
+  filter: drop-shadow(3px 3px 5px rgba(89, 186, 243, 0.8));
 }

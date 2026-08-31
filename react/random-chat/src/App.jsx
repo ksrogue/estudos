@@ -1,7 +1,10 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import WizardSprite from "./components/wizardSprite";
 import ChatContainer from "./components/chatContainer";
+import wizardSpriteImg from "/src/assets/images/wizard_sprite.png";
+import wizardConjuringSprite from "/src/assets/images/wizard_conjuring_sprite.png";
+import castingSound from "/src/assets/sounds/casting_sound.mp3";
 
 function App() {
   const [canClick, setCanClick] = useState(true);
@@ -13,6 +16,9 @@ function App() {
       ? "Click on the Wizard for an advice!"
       : "Clique no Mago para um conselho!",
   );
+  const [wizardSprite, setWizardSprite] = useState(wizardSpriteImg);
+  const [isConjuring, setIsConjuring] = useState("");
+  const audioRef = useRef(null);
 
   const getNewAdvice = async () => {
     try {
@@ -72,6 +78,10 @@ function App() {
     if (!canClick) return;
 
     setCanClick(false);
+    setWizardSprite(wizardConjuringSprite);
+    setIsConjuring("conjuring");
+    audioRef.current.volume = 0.3;
+    audioRef.current.play();
     const adviceText = await getNewAdvice();
 
     if (adviceText) {
@@ -80,7 +90,9 @@ function App() {
 
     setTimeout(() => {
       setCanClick(true);
-    }, 1000);
+      setWizardSprite(wizardSpriteImg);
+      setIsConjuring("");
+    }, 1500);
   };
 
   const langHandler = () => {
@@ -101,9 +113,15 @@ function App() {
         <button className={`fi fi-${lang}`} onClick={langHandler}></button>
       </section>
       <div className="container">
-        <WizardSprite onClick={adviceHandler} />
+        <WizardSprite
+          onClick={adviceHandler}
+          sprite={wizardSprite}
+          isConjuring={isConjuring}
+        />
         <ChatContainer name={name} advice={displayedAdvice} />
       </div>
+
+      <audio ref={audioRef} src={castingSound}></audio>
     </div>
   );
 }
