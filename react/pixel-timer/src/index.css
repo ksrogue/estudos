@@ -1,0 +1,26 @@
+:root {
+  --main-bg: #24103f;
+  --end-bg: #5b2a91;
+  --card-border: #160d2b;
+  --card-bg: #302052;
+  --btn-border: #1b102d;
+  --btn-bg: #e83a3a;
+  --main-text: #ffe8a3;
+  --sec-text: #f5dfa0;
+  --span-text: #bfa9e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100dvh;
+
+  background: linear-gradient(to bottom, var(--main-bg), var(--end-bg));
+  display: flex;
+  justify-content: center;
+}

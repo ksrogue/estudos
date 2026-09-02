@@ -1,0 +1,84 @@
+.app-container {
+  width: 100vw;
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.settings-container {
+  width: 90%;
+}
+.settings-container i {
+  font-size: 2.5em;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+.settings-container i:hover {
+  transform: translateY(-2px);
+}
+
+.start-button, .reset-button {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.start-button:hover, .reset-button:hover {
+  transform: translateY(-2px);
+  background-color: rgb(117, 117, 117);
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.timer {
+  font-size: 5em;
+  font-weight: bolder;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+}
+.timer-text {
+  color: gray;
+  font-size: .9em;
+}
+
+.cycles-container {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cycle {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.current {
+  width: 50%;
+  height: 50%;
+  background-color: black;
+  border-radius: 50%;
+}
+.completed {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
