@@ -15,8 +15,8 @@ function App() {
 
   const audioRef = useRef(null);
   const alarmRef = useRef(null);
-  if(alarmRef.current) {
-     alarmRef.current.volume = 0.3;
+  if (alarmRef.current) {
+    alarmRef.current.volume = 0.3;
   }
   useEffect(() => {
     if (audioRef.current) {
@@ -87,18 +87,22 @@ function App() {
   };
 
   const breakCall = () => {
-    alarmRef.current.play().catch((err) => console.warn("Audio file blocked by browser:", err));
+    alarmRef.current
+      .play()
+      .catch((err) => console.warn("Audio file blocked by browser:", err));
     setTimeout(() => {
       handleBreak();
-    }, 1500)
+    }, 1500);
   };
 
   const cycleCall = () => {
-    alarmRef.current.play().catch((err) => console.warn("Audio file blocked from browser", err));
+    alarmRef.current
+      .play()
+      .catch((err) => console.warn("Audio file blocked from browser", err));
     setTimeout(() => {
       handleCycle();
-    }, 1500)
-  }
+    }, 1500);
+  };
 
   const handleCycle = () => {
     setIsFocus(true);
@@ -162,3 +166,5 @@ function App() {
 }
 
 export default App;
+
+// todo: adicionar as imagens de fundo, fontes e cores personalizdas.
