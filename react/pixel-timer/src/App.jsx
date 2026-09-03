@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import bgSound from "./assets/sounds/bg_sound.mp3";
+import alarmSound from "./assets/sounds/alarm_sound.mp3";
 
 function App() {
   const [isMuted, setIsMuted] = useState(false);
@@ -13,6 +14,10 @@ function App() {
   const [text, setText] = useState("Foco na Missão!");
 
   const audioRef = useRef(null);
+  const alarmRef = useRef(null);
+  if(alarmRef.current) {
+     alarmRef.current.volume = 0.3;
+  }
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.1;
@@ -37,14 +42,14 @@ function App() {
         setSeconds(59);
       } else if (minute === 0 && seconds === 0 && isFocus && currentCycle < 4) {
         setIsFocus(false);
-        handleBreak();
+        breakCall();
       } else if (
         minute === 0 &&
         seconds === 0 &&
         !isFocus &&
         currentCycle <= 4
       ) {
-        handleCycle();
+        cycleCall();
       } else {
         setMinute(0);
         setSeconds(0);
@@ -80,6 +85,20 @@ function App() {
     setSeconds(0);
     setText("Descanse, Guerreiro!");
   };
+
+  const breakCall = () => {
+    alarmRef.current.play().catch((err) => console.warn("Audio file blocked by browser:", err));
+    setTimeout(() => {
+      handleBreak();
+    }, 1500)
+  };
+
+  const cycleCall = () => {
+    alarmRef.current.play().catch((err) => console.warn("Audio file blocked from browser", err));
+    setTimeout(() => {
+      handleCycle();
+    }, 1500)
+  }
 
   const handleCycle = () => {
     setIsFocus(true);
@@ -137,6 +156,7 @@ function App() {
         </div>
       </div>
       <audio ref={audioRef} src={bgSound} loop></audio>
+      <audio ref={alarmRef} src={alarmSound}></audio>
     </div>
   );
 }
