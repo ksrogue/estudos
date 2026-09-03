@@ -15,9 +15,11 @@ function App() {
 
   const audioRef = useRef(null);
   const alarmRef = useRef(null);
-  if (alarmRef.current) {
-    alarmRef.current.volume = 0.3;
-  }
+  useEffect(() => {
+    if (alarmRef.current) alarmRef.current.volume = 0.3;
+    if (audioRef.current) audioRef.current.volume = 0.1;
+  }, []);
+
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.1;
@@ -41,15 +43,17 @@ function App() {
         setMinute((prev) => prev - 1);
         setSeconds(59);
       } else if (minute === 0 && seconds === 0 && isFocus && currentCycle < 4) {
+        playAlarm();
         setIsFocus(false);
-        breakCall();
+        handleBreak();
       } else if (
         minute === 0 &&
         seconds === 0 &&
         !isFocus &&
         currentCycle <= 4
       ) {
-        cycleCall();
+        playAlarm();
+        handleCycle();
       } else {
         setMinute(0);
         setSeconds(0);
@@ -86,30 +90,18 @@ function App() {
     setText("Descanse, Guerreiro!");
   };
 
-  const breakCall = () => {
-    alarmRef.current
-      .play()
-      .catch((err) => console.warn("Audio file blocked by browser:", err));
-    setTimeout(() => {
-      handleBreak();
-    }, 1500);
-  };
-
-  const cycleCall = () => {
-    alarmRef.current
-      .play()
-      .catch((err) => console.warn("Audio file blocked from browser", err));
-    setTimeout(() => {
-      handleCycle();
-    }, 1500);
-  };
-
   const handleCycle = () => {
     setIsFocus(true);
     setMinute(25);
     setSeconds(0);
     setText("Foco na Missão!");
     setCurrentCycle((prev) => prev + 1);
+  };
+
+  const playAlarm = () => {
+    alarmRef.current.play().catch((err) => {
+      ("Audio file blocked from browser", err);
+    });
   };
 
   const timer = `${String(minute).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
