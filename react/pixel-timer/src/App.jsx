@@ -109,7 +109,7 @@ function App() {
 
   const playAlarm = () => {
     alarmRef.current.play().catch((err) => {
-      ("Audio file blocked from browser", err);
+      console.warn("Audio file blocked from browser", err);
     });
   };
 
@@ -146,7 +146,6 @@ function App() {
 
   const toggleSettings = () => {
     !showSettings ? setShowSettings(true) : setShowSettings(false);
-    console.log(showSettings);
   };
 
   const saveSettings = () => {
