@@ -70,7 +70,7 @@ function App() {
         setIsActive(false);
         setIsOver(true);
       }
-    }, 10);
+    }, 1000);
 
     return () => clearInterval(countdown);
   }, [minute, seconds, isActive, isFocus]);
