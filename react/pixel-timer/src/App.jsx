@@ -197,7 +197,7 @@ function App() {
         cycleIcon={cycleIcon}
       />
 
-      <audio ref={audioRef} src={bgSound}></audio>
+      <audio ref={audioRef} src={bgSound} loop></audio>
       <audio ref={alarmRef} src={alarmSound}></audio>
     </div>
   );
