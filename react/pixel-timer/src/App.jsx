@@ -2,13 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import bgSound from "./assets/sounds/bg_sound.mp3";
 import alarmSound from "./assets/sounds/alarm_sound.mp3";
+import cycleIcon from "./assets/images/cycle_icon.png";
+
+import SettingsContainer from "./assets/components/settingsContainer";
+import TimerContainer from "./assets/components/timerContainer";
+import CycleContainer from "./assets/components/cycleContainer";
 
 function App() {
+  const [showSettings, setShowSettings] = useState(true);
+  const [userCycle, setUserCycle] = useState(5);
+  const [userBreak, setUserBreak] = useState(5);
   const [isMuted, setIsMuted] = useState(false);
   const [isOver, setIsOver] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [isFocus, setIsFocus] = useState(true);
-  const [minute, setMinute] = useState(25);
+  const [minute, setMinute] = useState(userCycle);
   const [seconds, setSeconds] = useState(0);
   const [currentCycle, setCurrentCycle] = useState(1);
   const [text, setText] = useState("Foco na Missão!");
@@ -55,13 +63,14 @@ function App() {
         playAlarm();
         handleCycle();
       } else {
+        playAlarm();
         setMinute(0);
         setSeconds(0);
         setText("fim");
         setIsActive(false);
         setIsOver(true);
       }
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(countdown);
   }, [minute, seconds, isActive, isFocus]);
@@ -74,7 +83,7 @@ function App() {
     setIsActive(false);
     setIsFocus(true);
     setIsOver(false);
-    setMinute(25);
+    setMinute(userCycle);
     setSeconds(0);
     setCurrentCycle(1);
     setText("Foco na Missão!");
@@ -85,14 +94,14 @@ function App() {
   };
 
   const handleBreak = () => {
-    setMinute(5);
+    setMinute(userBreak);
     setSeconds(0);
     setText("Descanse, Guerreiro!");
   };
 
   const handleCycle = () => {
     setIsFocus(true);
-    setMinute(25);
+    setMinute(userCycle);
     setSeconds(0);
     setText("Foco na Missão!");
     setCurrentCycle((prev) => prev + 1);
@@ -106,57 +115,93 @@ function App() {
 
   const timer = `${String(minute).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 
+  const addCycle = () => {
+    if (userCycle <= 55) {
+      setUserCycle((prev) => prev + 5);
+    } else {
+      setUserCycle(60);
+    }
+  };
+  const rmvCycle = () => {
+    if (userCycle >= 10) {
+      setUserCycle((prev) => prev - 5);
+    } else {
+      setUserCycle(5);
+    }
+  };
+  const addBreak = () => {
+    if (userBreak <= 10) {
+      setUserBreak((prev) => prev + 5);
+    } else {
+      setUserBreak(15);
+    }
+  };
+  const rmvBreak = () => {
+    if (userBreak >= 10) {
+      setUserBreak((prev) => prev - 5);
+    } else {
+      setUserBreak(5);
+    }
+  };
+
+  const toggleSettings = () => {
+    !showSettings ? setShowSettings(true) : setShowSettings(false);
+    console.log(showSettings);
+  };
+
+  const saveSettings = () => {
+    setMinute(userCycle);
+    setShowSettings(false);
+    handleReset();
+  };
+
   return (
     <div className="app-container">
-      <div className="settings-container">
+      <div className="button-container">
         <i
-          className={
-            !isMuted ? "bi bi-volume-down-fill" : "bi bi-volume-mute-fill"
-          }
+          className={`volume ${isMuted ? `bi bi-volume-mute-fill` : `bi bi-volume-down-fill`}`}
           onClick={handleVolume}
         ></i>
+        <i
+          className={`settings ${!showSettings ? "bi bi-gear-fill" : "bi bi-x"} onClick={toggleSettings}`}
+          onClick={toggleSettings}
+        ></i>
       </div>
+      <SettingsContainer
+        addCycle={addCycle}
+        addBreak={addBreak}
+        rmvCycle={rmvCycle}
+        rmvBreak={rmvBreak}
+        userCycle={userCycle}
+        userBreak={userBreak}
+        save={saveSettings}
+        showSettings={showSettings}
+      />
       {isOver ? (
-        <button className="reset-button" onClick={handleReset}>
+        <button className={`start-button ${!showSettings ? "show-settings" : ""}`} onClick={handleReset}>
           RECOMEÇAR
         </button>
       ) : (
-        <button className="start-button" onClick={handleStart}>
-          {isActive ? "PAUSAR MISSÃO" : "INICIAR MISSÃO"}
+        <button
+          className={`start-button ${!showSettings ? "show-settings" : ""}`}
+          onClick={handleStart}
+        >
+          {isActive ? "PAUSAR MISSÃO" : "COMEÇAR MISSÃO"}
         </button>
       )}
-      <div className="timer-container">
-        <div className="timer">{timer}</div>
-        <span className="timer-text">{text}</span>
-      </div>
-      <div className="cycles-container">
-        <div className="cycle">
-          <span
-            className={`${currentCycle > 1 ? "completed" : ""} ${currentCycle === 1 ? "current" : ""}`}
-          ></span>
-        </div>
-        <div className="cycle">
-          <span
-            className={`${currentCycle > 2 ? "completed" : ""} ${currentCycle === 2 ? "current" : ""}`}
-          ></span>
-        </div>
-        <div className="cycle">
-          <span
-            className={`${currentCycle > 3 ? "completed" : ""} ${currentCycle === 3 ? "current" : ""}`}
-          ></span>
-        </div>
-        <div className="cycle">
-          <span
-            className={`${isOver ? "completed" : ""} ${currentCycle === 4 ? "current" : ""}`}
-          ></span>
-        </div>
-      </div>
-      <audio ref={audioRef} src={bgSound} loop></audio>
+
+      <TimerContainer timer={timer} text={text} />
+
+      <CycleContainer
+        currentCycle={currentCycle}
+        isOver={isOver}
+        cycleIcon={cycleIcon}
+      />
+
+      <audio ref={audioRef} src={bgSound}></audio>
       <audio ref={alarmRef} src={alarmSound}></audio>
     </div>
   );
 }
 
 export default App;
-
-// todo: adicionar as imagens de fundo, fontes e cores personalizdas.
