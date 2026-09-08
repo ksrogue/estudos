@@ -1,0 +1,96 @@
+.app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-title {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.add-task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.add-input {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 4px;
+  outline: none;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #ddd;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  width: 24px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.status-message {
+  font-size: 0.8em;
+  color: #ffa500;
+  letter-spacing: 2px;
+  margin-top: -32px;
+  display: none;
+}
+
+.task-container {
+  list-style: none;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.task-item {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+}
+.button-container {
+  display: flex;
+  gap: 8px;
+}
+.check,
+.del {
+  font-size: 1em;
+  padding: 2px;
+}
+
+.success {
+  display: block;
+  color: green;
+}
+
+.error {
+  color: red;
+  display: block;
+}
+
+.checked {
+  border: 2px solid rgb(10, 122, 10);
+  background-color: #919191;
+}
