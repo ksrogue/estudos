@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([
     { id: crypto.randomUUID(), text: "ksrogue", checked: false },
   ]);
+  const [pendingTasks, setPendingTasks] = useState([]);
+  const [doneTasks, setDoneTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
   const [status, setSatus] = useState({ code: "", text: "" });
 
@@ -44,6 +46,21 @@ function App() {
     }, 1500);
   };
 
+  const handleAllTasks = () => {
+
+  }
+
+  const handlePendingTasks = () => {
+    setTasks((prev) => prev.filter((task) => task.checked === false));
+    setSatus({ code: "success", text: "ksrogue" });
+  };
+
+  const handleFinishedTasks = () => {
+    setDoneTasks(tasks.filter((task) => task.checked));
+  }
+
+  useEffect(() => {}, [tasks])
+
   const resetInput = () => {
     setTaskInput("");
     setSatus({ code: "", text: "" });
@@ -66,6 +83,11 @@ function App() {
       </section>
       <span className={`status-message ${status.code}`}>{status.text}</span>
 
+      <div className="filter-container">
+        <button className="selected">todos</button>
+        <button onClick={handlePendingTasks}>pendente</button>
+        <button onClick={handleFinishedTasks}>finalizadas</button>
+      </div>
       <ul className="task-container">
         {tasks.map((task, id, checked) => (
           <li
