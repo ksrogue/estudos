@@ -3,7 +3,11 @@ import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: crypto.randomUUID(), text: "ksrogue", checked: false },
+    {
+      id: crypto.randomUUID(),
+      text: "adicionar sua primeira missão!",
+      checked: false,
+    },
   ]);
   const [taskInput, setTaskInput] = useState("");
   const [status, setSatus] = useState({ code: "", text: "" });
@@ -18,6 +22,7 @@ function App() {
         text: taskInput.trim(),
         checked: false,
       };
+      setTaskInput("");
       setTasks((prev) => [...prev, newTask]);
       setSatus({ code: "success", text: "tarefa adicionada com sucesso!" });
       setTimeout(() => {
@@ -44,8 +49,11 @@ function App() {
     }, 1500);
   };
 
+  const handleFilter = () => {
+
+  }
+
   const resetInput = () => {
-    setTaskInput("");
     setSatus({ code: "", text: "" });
   };
   return (
@@ -65,7 +73,12 @@ function App() {
         </button>
       </section>
       <span className={`status-message ${status.code}`}>{status.text}</span>
-
+      <div className="filter-container">
+        <button className="active">todas</button>
+        <button>pendentes</button>
+        <button>finalizadas</button>
+      </div>
+      <h2 className="sub-title">MISSÕES</h2>
       <ul className="task-container">
         {tasks.map((task, id, checked) => (
           <li

@@ -12,14 +12,24 @@
   font-weight: normal;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
+.sub-title {
+  font-size: 1.5em;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: -24px;
+}
 
 .add-task-container {
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
 }
 .add-input {
+  width: 100%;
+  max-width: 500px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #ddd;
@@ -51,15 +61,38 @@
   display: none;
 }
 
+.filter-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: -16px;
+}
+.filter-container button {
+  width: 80px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.filter-container button:hover {
+  transform: translateY(-2px);
+}
+
 .task-container {
   list-style: none;
   width: 90%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
 }
 .task-item {
+  max-width: 600px;
   width: 90%;
   display: flex;
   align-items: center;
@@ -72,6 +105,7 @@
 }
 .button-container {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 .check,
@@ -93,4 +127,9 @@
 .checked {
   border: 2px solid rgb(10, 122, 10);
   background-color: #919191;
+}
+
+.active {
+  background-color: #919191;
+  transform: translateY(2px);
 }
