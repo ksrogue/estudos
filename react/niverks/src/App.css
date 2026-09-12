@@ -1,0 +1,148 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+
+  width: 100%;
+  height: 100%;
+}
+
+.start-button {
+  border: 2px solid goldenrod;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  min-width: 128px;
+  min-height: 16px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: var(--main-font);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(14, 41, 90);
+  color: #aaa;
+
+  margin-top: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.start-button:hover {
+  transform: translateY(-2px);
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: auto;
+}
+.sprite-container {
+  margin-bottom: -35px;
+  width: 100px;
+  & img {
+    width: 100%;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.4));
+  }
+}
+.chat-name {
+  z-index: 99;
+  border: 2px solid black;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  padding: 8px;
+  background-color: rgb(14, 41, 90);
+  color: goldenrod;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  font-family: var(--main-font);
+  font-size: .8em;
+  text-align: center;
+}
+.text-box {
+  z-index: 99;
+  border: 2px solid black;
+  border-radius: 0 5px 5px;
+  width: 100%;
+  min-height: 75px;
+  padding: 8px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  background-color: rgb(14, 41, 90);
+  color: #aaa;
+  font-family: var(--main-font);
+  font-size: .6em;
+
+  display: flex;
+  justify-content: space-between;
+}
+.text {
+  line-height: 15px;
+}
+.confirm {
+  display: none;
+  font-size: 1.5em;
+  margin-left: auto;
+  margin-top: auto;
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.confirm:hover {
+  transform: translateY(-2px);
+}
+
+
+.video-container {
+  animation: showVideo 1.5s forwards;
+  margin-top: 200px;
+  display: none;
+  max-width: 90%;
+  max-height: 200px;
+  & video {
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.show {
+  display: flex;
+}
+.hidden {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+  .start-button {
+    padding: 32px;
+    font-size: 2.5em;
+  }
+}
+
+
+
+@keyframes showVideo {
+  0% {
+    opacity: 0;
+    width: 20%;
+  }
+  
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}

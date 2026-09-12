@@ -11,6 +11,7 @@ function App() {
   ]);
   const [taskInput, setTaskInput] = useState("");
   const [status, setSatus] = useState({ code: "", text: "" });
+  const [filterState, setFilterState] = useState("todas");
 
   const handleInput = (e) => {
     setTaskInput(e.target.value);
@@ -49,9 +50,9 @@ function App() {
     }, 1500);
   };
 
-  const handleFilter = () => {
-
-  }
+  const handleFilter = (filter) => {
+    setFilterState(filter);
+  };
 
   const resetInput = () => {
     setSatus({ code: "", text: "" });
@@ -74,13 +75,13 @@ function App() {
       </section>
       <span className={`status-message ${status.code}`}>{status.text}</span>
       <div className="filter-container">
-        <button className="active">todas</button>
-        <button>pendentes</button>
-        <button>finalizadas</button>
+        <button className="active" onClick={() => handleFilter("todas")}>todas</button>
+        <button onClick={() => handleFilter("pendentes")}>pendentes</button>
+        <button onClick={() => handleFilter("finalizadas")}>finalizadas</button>
       </div>
       <h2 className="sub-title">MISSÕES</h2>
       <ul className="task-container">
-        {tasks.map((task, id, checked) => (
+        {tasks.map((task) => (
           <li
             key={task.id}
             className={`task-item ${task.checked ? "checked" : ""}`}
