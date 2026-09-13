@@ -11,8 +11,7 @@ import Music from "./assets/sounds/music.mp3";
 function App() {
   const fullText = [
     "Feliz aniversário, meu amor!",
-    "Hoje o dia é todinho seu, mas o maior presente quem ganha todos os dias sou eu,",
-    "por ter você na minha vida.",
+    "Hoje o dia é todinho seu, mas o maior presente quem ganha todos os dias sou eu, por ter você na minha vida.",
     "Obrigado por ser minha companheira, minha amiga e a minha duo.",
     "Que o seu novo ano seja repleto de felicidade, conquistas e muita saúde.",
     "Te amo muito!",
