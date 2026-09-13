@@ -10,11 +10,12 @@ import Music from "./assets/sounds/music.mp3";
 
 function App() {
   const fullText = [
-    "Parabéns, meu amor!",
-    "Desejo que o seu dia seja tão incrível quanto você.",
-    "Que você continue sendo essa pessoa dedicada e maravilhosa,",
-    "e que todos os seus sonhos e objetivos se realizem.",
-    "Amo muito você!",
+    "Feliz aniversário, meu amor!",
+    "Hoje o dia é todinho seu, mas o maior presente quem ganha todos os dias sou eu,",
+    "por ter você na minha vida.",
+    "Obrigado por ser minha companheira, minha amiga e a minha duo.",
+    "Que o seu novo ano seja repleto de felicidade, conquistas e muita saúde.",
+    "Te amo muito!",
   ];
 
   const [hasStarted, setHasStarted] = useState(false);
