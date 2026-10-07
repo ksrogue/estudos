@@ -21,7 +21,6 @@ function App() {
   const handleTool = (tool) => {
     setSelectedTool(tool);
   };
-
   const handleCrop = (currentCrop) => {
     if(currentCrop.status === "arado" && seed.qty <= 0) {
       setMesage("Você não tem sementes!");
@@ -69,6 +68,7 @@ function App() {
       );
     }
   };
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -135,6 +135,8 @@ function App() {
           </span>
         ))}
       </div>
+      <span>{message}</span>
+
     </div>
   );
 }

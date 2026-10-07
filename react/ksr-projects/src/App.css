@@ -1,0 +1,67 @@
+.app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #222;
+  border-bottom: 1px solid black;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+  z-index: 1;
+}
+.logo {
+  width: 64px;
+  height: 32px;
+  border: 1px solid goldenrod;
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+}
+.menu-button {
+  color: white;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.menu-button:hover {
+  color: goldenrod;
+}
+
+.menu-container {
+  width: 100%;
+  display: none;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  background-color: #222;
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, .4);
+  position: absolute;
+  top: 0;
+}
+.menu-active {
+  display: flex;
+  animation: showMenu .3s forwards;
+}
+@keyframes showMenu {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(48px);
+  }
+}
+
+.menu-item {
+  cursor: pointer;
+  transition: all .3s ease-in;
+}
+.menu-item:hover {
+  color: goldenrod;
+}
