@@ -1,8 +1,31 @@
+:root {
+  --main-bg: #333;
+  --card-bg: #222;
+  --card-border: #111;
+  --text-color: #aaa;
+  --text-hover: #daa520;
+}
+
+.light-theme {
+  --main-bg: #e4e2e2;
+  --card-bg: #dbd9d9;
+  --card-border: #111;
+  --text-color: #333;
+  --text-hover: #daa520;
+}
+body {
+  background-color: var(--main-bg);
+}
+
 .app-container {
   width: 100%;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background-color: var(--main-bg);
+  transition: background .1s ease-in;
 }
 header {
   width: 100%;
@@ -10,26 +33,24 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  background-color: #222;
-  border-bottom: 1px solid black;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+  background-color: var(--card-bg);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
   z-index: 1;
+  transition: background .1s ease-in;
 }
 .logo {
   width: 64px;
-  height: 32px;
-  border: 1px solid goldenrod;
   border-radius: 50%;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, .4);
+  color: var(--text-hover);
 }
 .menu-button {
-  color: white;
+  color: var(--text-color);
   font-size: 1.3em;
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 .menu-button:hover {
-  color: goldenrod;
+  color: var(--text-hover);
 }
 
 .menu-container {
@@ -39,15 +60,16 @@ header {
   align-items: center;
   justify-content: center;
   list-style: none;
-  background-color: #222;
+  background-color: var(--card-bg);
   padding: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, .4);
+  border-bottom: 1px solid var(--card-border);
   position: absolute;
   top: 0;
+  transition: background .1s ease-in;
 }
 .menu-active {
   display: flex;
-  animation: showMenu .3s forwards;
+  animation: showMenu 0.3s forwards;
 }
 @keyframes showMenu {
   from {
@@ -60,8 +82,9 @@ header {
 
 .menu-item {
   cursor: pointer;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
+  color: var(--text-color);
 }
 .menu-item:hover {
-  color: goldenrod;
+  color: var(--text-hover);
 }
